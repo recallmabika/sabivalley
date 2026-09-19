@@ -215,38 +215,54 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-            <p>&copy; 2026 Chipinge Safari Area. All rights reserved.</p>
-            <div className="flex items-center gap-4 text-xs text-gray-400">
-              <Link href="/terms" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
+        {/* Bottom Bar - Two Clean, Spacious Tiers */}
+        <div className="mt-16 pt-8 border-t border-white/10 space-y-4 text-xs sm:text-sm text-gray-400">
+          {/* Tier 1: Copyright & Legal Policies */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-center md:text-left text-gray-300">
+              &copy; 2026 Chipinge Safari Area. All rights reserved.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-300">
+              <Link 
+                href="/terms" 
+                className="whitespace-nowrap hover:text-[#52b788] transition-colors underline underline-offset-4"
+              >
                 Terms &amp; Conditions
               </Link>
-              <span>•</span>
-              <Link href="/privacy" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
+              <span className="text-white/20">•</span>
+              <Link 
+                href="/privacy" 
+                className="whitespace-nowrap hover:text-[#52b788] transition-colors underline underline-offset-4"
+              >
                 Privacy Policy
               </Link>
-              <span>•</span>
-              <Link href="/park-rules" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
-                Park Rules
+              <span className="text-white/20">•</span>
+              <Link 
+                href="/park-rules" 
+                className="whitespace-nowrap hover:text-[#52b788] transition-colors underline underline-offset-4"
+              >
+                Park Rules &amp; Wildlife Code
               </Link>
             </div>
           </div>
-          <p className="text-center text-xs sm:text-sm">
-            In partnership with ZIMPARKS &amp; AWARE Germany e.V.
-          </p>
-          <p className="text-xs sm:text-sm">
-            Web design and development by{" "}
-            <a 
-              href="https://zitrac.co.zw" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[#52b788] hover:text-white font-semibold underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded"
-            >
-              ZITRAC
-            </a>
-          </p>
+
+          {/* Tier 2: Conservation Partners & Credits */}
+          <div className="pt-4 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+            <p className="text-center md:text-left">
+              In partnership with <span className="text-white font-medium">ZIMPARKS</span> &amp; <span className="text-white font-medium">AWARE Germany e.V.</span>
+            </p>
+            <p className="text-center md:text-right pr-0 lg:pr-24">
+              Web design and development by{" "}
+              <a 
+                href="https://zitrac.co.zw" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#52b788] hover:text-white font-semibold underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded"
+              >
+                ZITRAC
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
