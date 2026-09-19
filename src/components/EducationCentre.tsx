@@ -36,30 +36,29 @@ export default function EducationCentre() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
-          {/* Left Column: Feature Image */}
-          <motion.div variants={itemVariants} className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/safari/education-groundbreaking.jpg"
-              alt="Education Centre Groundbreaking"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          {/* Left Column: Feature Image with 'Education & Conservation' above it */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38]">
+              Education & Conservation
+            </p>
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[560px] w-full rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/safari/education-groundbreaking.jpg"
+                alt="Education Centre Groundbreaking"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </div>
           </motion.div>
 
           {/* Right Column: Content */}
           <motion.div variants={containerVariants} className="space-y-8">
             <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
-                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] shrink-0">
-                  Education & Conservation
-                </span>
-                <span className="hidden sm:inline text-[#C27D38]/50">•</span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
-                  Environmental Education Centre
-                </h2>
-              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
+                Environmental Education Centre
+              </h2>
               <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
                 &ldquo;{siteInfo.motto}&rdquo;
               </p>
