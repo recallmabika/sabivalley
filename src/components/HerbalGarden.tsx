@@ -100,8 +100,11 @@ export default function HerbalGarden() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {highlights.map((item, index) => (
-                <div key={index} className="p-5 rounded-xl bg-[#F4EFEA] border border-[#1B3B2B]/5 flex flex-col justify-start">
-                  <h3 className="font-heading font-semibold text-[#1B3B2B] text-base mb-2">
+                <div 
+                  key={index} 
+                  className="p-5 rounded-xl border border-gray-200 hover:border-[#C27D38]/50 transition-colors flex flex-col justify-start bg-transparent"
+                >
+                  <h3 className="font-heading font-bold text-[#1B3B2B] text-base mb-2">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
