@@ -132,17 +132,17 @@ export default function BookingInquiry() {
 
   return (
     <section id="contact" className="relative py-24 overflow-hidden bg-white">
-      {/* Wildlife & Ranger Background covering the whole window - Sharp, No Blur, Natural Colors */}
+      {/* Landscape Sunrise & Wildlife Background covering the whole window - Sharp, No Blur */}
       <div className="absolute inset-0 pointer-events-none select-none">
         <Image
-          src="/images/safari/ranger-elephants-contact.jpg"
-          alt="Chipinge Safari Area ranger overlooking elephant herd"
+          src="/images/safari/contact-bg.jpg"
+          alt="Chipinge Safari Area sunrise landscape"
           fill
           className="object-cover object-center"
           priority
           quality={100}
         />
-        {/* Crisp neutral light overlay (no goldish tint, no blur) for perfect readability */}
+        {/* Crisp neutral light wash for perfect readability without blur or goldish tint */}
         <div className="absolute inset-0 bg-white/30" />
       </div>
 
