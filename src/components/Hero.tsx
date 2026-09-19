@@ -68,7 +68,7 @@ export default function Hero() {
             <h2 className="text-xl md:text-2xl lg:text-3xl text-[#F4EFEA] font-medium text-left">
               Nurturing Today. Protecting Tomorrow. In Harmony with Nature.
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 items-start lg:items-center shrink-0">
+            <div className="flex flex-col gap-4 items-start shrink-0">
               <Link
                 href="#experiences"
                 className="px-8 py-4 bg-[#C27D38] hover:bg-[#8C4F2B] text-[#FDFCFA] font-medium rounded transition-colors shadow-lg whitespace-nowrap"
@@ -93,7 +93,7 @@ export default function Hero() {
         transition={{ delay: 1, duration: 0.8 }}
         className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x divide-white/20 py-4 max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x divide-white/20 py-4">
           <div className="flex flex-col items-center justify-center text-center px-4">
             <span className="text-4xl font-heading text-[#FDFCFA] mb-1">8</span>
             <span className="text-sm uppercase tracking-wider text-[#F4EFEA]/80">Wilderness Experiences</span>
