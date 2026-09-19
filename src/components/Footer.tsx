@@ -29,7 +29,7 @@ export default function Footer() {
     }, 5000);
   };
   return (
-    <footer className="bg-[#0F2A1D] text-[#F4EFEA] border-t border-[#1B3B2B]">
+    <footer className="bg-[#0F2A1D] text-[#F4EFEA] border-t border-white/[0.035]">
       <div className="container mx-auto px-4 lg:px-8 py-16 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
@@ -53,7 +53,7 @@ export default function Footer() {
             </p>
             
             {/* Partners Logos */}
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-white/[0.035]">
               <p className="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">
                 Official Conservation Partners
               </p>
@@ -148,7 +148,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Subscribe with Floating Label, Clean Border Focus & Validation */}
-        <div className="mt-12 pt-10 border-t border-white/10">
+        <div className="mt-12 pt-10 border-t border-white/[0.035]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h4 className="text-lg font-heading font-semibold text-white tracking-wide mb-1">
@@ -215,8 +215,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar - Two Clean, Spacious Tiers */}
-        <div className="mt-16 pt-8 border-t border-white/10 space-y-4 text-xs sm:text-sm text-gray-400">
+        {/* Bottom Bar - Two Clean, Spacious Tiers with Dim Lines */}
+        <div className="mt-16 pt-8 border-t border-white/[0.035] space-y-4 text-xs sm:text-sm text-gray-400">
           {/* Tier 1: Copyright & Legal Policies */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-center md:text-left text-gray-300">
@@ -247,7 +247,7 @@ export default function Footer() {
           </div>
 
           {/* Tier 2: Conservation Partners & Credits */}
-          <div className="pt-4 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+          <div className="pt-4 border-t border-white/[0.035] flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
             <p className="text-center md:text-left">
               In partnership with <span className="text-white font-medium">ZIMPARKS</span> &amp; <span className="text-white font-medium">AWARE Germany e.V.</span>
             </p>
