@@ -1,0 +1,155 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { siteInfo } from "@/data/content";
+import { GraduationCap, Users, Globe, Award } from "lucide-react";
+
+export default function EducationCentre() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  return (
+    <section id="education" className="bg-[#1B3B2B] text-[#FDFCFA] py-20 lg:py-28">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+        >
+          {/* Left Column: Feature Image */}
+          <motion.div variants={itemVariants} className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/safari/education-groundbreaking.jpg"
+              alt="Education Centre Groundbreaking"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          </motion.div>
+
+          {/* Right Column: Content */}
+          <motion.div variants={containerVariants} className="space-y-8">
+            <div className="space-y-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#C27D38]/20 text-[#C27D38] text-sm font-semibold tracking-wider uppercase border border-[#C27D38]/30">
+                Education & Conservation
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[var(--font-heading)] leading-tight text-[#FDFCFA]">
+                Environmental Education Centre
+              </h2>
+              <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
+                "{siteInfo.motto}"
+              </p>
+            </div>
+
+            <p className="text-[#F4EFEA] text-lg leading-relaxed opacity-90">
+              The AWARE / ZIMPARKS Environmental Education Centre represents a critical investment in the future of conservation. By inspiring and educating the next generation, we foster a deep understanding of our natural heritage and the urgent need to protect it for years to come.
+            </p>
+
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10 space-y-3">
+              <h3 className="text-[#C27D38] font-semibold text-lg">Groundbreaking Milestone</h3>
+              <p className="text-[#FDFCFA]/80 text-sm">
+                <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
+              </p>
+              <p className="text-[#FDFCFA]/80 text-sm">
+                <span className="font-medium text-[#F4EFEA]">Key Officials:</span> {siteInfo.groundbreaking.officials.join(", ")}
+              </p>
+            </div>
+
+            {/* Impact Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
+                  <Users className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold text-[#FDFCFA] text-lg">Growing</p>
+                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Schools Engaged</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold text-[#FDFCFA] text-lg">Regional</p>
+                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Conservation Partners</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold text-[#FDFCFA] text-lg">Multiple</p>
+                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Youth Programmes</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold text-[#FDFCFA] text-lg">Enduring</p>
+                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Years of Legacy</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom Row: 3 Smaller Photos */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+        >
+          {[
+            { src: "/images/safari/students-education-centre.jpg", alt: "Students at Education Centre" },
+            { src: "/images/safari/ranger-outdoor-class.jpg", alt: "Ranger Outdoor Class" },
+            { src: "/images/safari/youth-conservation.jpg", alt: "Youth Conservation Activities" }
+          ].map((img, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className="relative h-64 md:h-72 rounded-xl overflow-hidden shadow-lg group"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
