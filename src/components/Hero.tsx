@@ -60,28 +60,30 @@ export default function Hero() {
             Discover the untamed beauty of the South East Lowveld. Join us in our mission of learning, discovery, and action to preserve this vital ecosystem for generations to come.
           </motion.p>
 
-          {/* Motto + CTA buttons — inline row on large screens */}
+          <motion.h2
+            variants={itemVariants}
+            className="text-xl md:text-2xl lg:text-3xl text-[#F4EFEA] font-medium text-left mb-10"
+          >
+            Nurturing Today. Protecting Tomorrow. In Harmony with Nature.
+          </motion.h2>
+
+          {/* CTA buttons — same width, left-aligned under title */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 w-full"
+            className="flex flex-col gap-6 items-start"
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-[#F4EFEA] font-medium text-left">
-              Nurturing Today. Protecting Tomorrow. In Harmony with Nature.
-            </h2>
-            <div className="flex flex-col gap-4 items-start shrink-0">
-              <Link
-                href="#experiences"
-                className="px-8 py-4 bg-[#C27D38] hover:bg-[#8C4F2B] text-[#FDFCFA] font-medium rounded transition-colors shadow-lg whitespace-nowrap"
-              >
-                Explore Experiences
-              </Link>
-              <Link
-                href="#contact"
-                className="px-8 py-4 bg-transparent border-2 border-[#FDFCFA] hover:bg-[#FDFCFA]/10 text-[#FDFCFA] font-medium rounded transition-colors whitespace-nowrap"
-              >
-                Plan Your Visit
-              </Link>
-            </div>
+            <Link
+              href="#experiences"
+              className="w-56 text-center px-8 py-4 bg-[#C27D38] hover:bg-[#8C4F2B] text-[#FDFCFA] font-medium rounded transition-colors shadow-lg"
+            >
+              Explore Experiences
+            </Link>
+            <Link
+              href="#contact"
+              className="w-56 text-center px-8 py-4 bg-transparent border-2 border-[#FDFCFA] hover:bg-[#FDFCFA]/10 text-[#FDFCFA] font-medium rounded transition-colors"
+            >
+              Plan Your Visit
+            </Link>
           </motion.div>
         </motion.div>
       </div>
