@@ -19,55 +19,55 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
+    const sectionIds = ["experiences", "education", "garden", "gallery", "contact"];
+
     const handleScroll = () => {
       const heroEl = document.getElementById("hero");
       if (heroEl) {
         const heroBottom = heroEl.getBoundingClientRect().bottom;
-        // Navbar bg-color should be visible exactly after hero section
+        // Navbar bg-color visible exactly after hero section
         setIsPastHero(heroBottom <= 80);
+
+        // If hero is still in view (its bottom is below the navbar), clear active
+        if (heroBottom > 80) {
+          setActiveSection("");
+          return;
+        }
       } else {
         setIsPastHero(window.scrollY > window.innerHeight - 80);
       }
 
-      // If scrolled back near top / on hero, clear active section
-      if (window.scrollY < 200) {
-        setActiveSection("");
+      // Determine which section is currently in view by finding the one
+      // whose top is closest to (but not below) a target line ~30% from viewport top
+      const targetLine = window.innerHeight * 0.3;
+      let currentSection = "";
+      let closestDistance = Infinity;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        // Section is considered "in view" if its top has scrolled past the target line
+        // OR if its body straddles the target line
+        if (rect.top <= targetLine && rect.bottom > targetLine) {
+          // This section contains the target line — best match
+          currentSection = id;
+          break;
+        }
+        // Fallback: find the section whose top is closest above the target line
+        const distance = targetLine - rect.top;
+        if (distance >= 0 && distance < closestDistance) {
+          closestDistance = distance;
+          currentSection = id;
+        }
       }
+
+      setActiveSection(currentSection);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Track active section via IntersectionObserver
-  useEffect(() => {
-    const sectionIds = ["experiences", "education", "garden", "gallery", "contact"];
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      // Only set active section if we are past the top
-      if (window.scrollY < 200) {
-        setActiveSection("");
-        return;
-      }
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      root: null,
-      rootMargin: "-20% 0px -50% 0px",
-      threshold: 0.1,
-    });
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);

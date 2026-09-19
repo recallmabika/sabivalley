@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { siteInfo } from "@/data/content";
-import { GraduationCap, Users, Globe, Award } from "lucide-react";
 
 export default function EducationCentre() {
   const containerVariants = {
@@ -52,14 +51,14 @@ export default function EducationCentre() {
           {/* Right Column: Content */}
           <motion.div variants={containerVariants} className="space-y-8">
             <div className="space-y-4">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#C27D38]/20 text-[#C27D38] text-sm font-semibold tracking-wider uppercase border border-[#C27D38]/30">
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38]">
                 Education & Conservation
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[var(--font-heading)] leading-tight text-[#FDFCFA]">
+              </p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
                 Environmental Education Centre
               </h2>
               <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
-                "{siteInfo.motto}"
+                &ldquo;{siteInfo.motto}&rdquo;
               </p>
             </div>
 
@@ -72,48 +71,28 @@ export default function EducationCentre() {
               <p className="text-[#FDFCFA]/80 text-sm">
                 <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
               </p>
-              <p className="text-[#FDFCFA]/80 text-sm">
+              <p className="text-[#FDFCFA]/80 text-sm leading-relaxed">
                 <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) & {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
               </p>
             </div>
 
-            {/* Impact Grid */}
+            {/* Impact Grid — no icons, clean text cards */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
-                  <Users className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#FDFCFA] text-lg">Growing</p>
-                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Schools Engaged</p>
-                </div>
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Growing</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Schools Engaged</p>
               </div>
-              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
-                  <Globe className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#FDFCFA] text-lg">Regional</p>
-                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Conservation Partners</p>
-                </div>
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Regional</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Conservation Partners</p>
               </div>
-              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#FDFCFA] text-lg">Multiple</p>
-                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Youth Programmes</p>
-                </div>
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Multiple</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Youth Programmes</p>
               </div>
-              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                <div className="p-3 bg-[#C27D38]/20 rounded-lg text-[#C27D38]">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#FDFCFA] text-lg">Enduring</p>
-                  <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider">Years of Legacy</p>
-                </div>
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Enduring</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Years of Legacy</p>
               </div>
             </div>
           </motion.div>
