@@ -34,26 +34,28 @@ export default function EducationCentre() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch"
         >
           {/* Left Column: Education & Conservation + Feature Image + 2 Cards */}
-          <motion.div variants={itemVariants} className="space-y-4">
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] pt-2">
-              Education &amp; Conservation
-            </p>
-            <div className="relative h-[380px] sm:h-[460px] lg:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/safari/education-groundbreaking.jpg"
-                alt="Education Centre Groundbreaking"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <motion.div variants={itemVariants} className="flex flex-col justify-between h-full space-y-6">
+            <div className="space-y-4">
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] pt-2">
+                Education &amp; Conservation
+              </p>
+              <div className="relative h-[380px] sm:h-[460px] lg:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/safari/education-groundbreaking.jpg"
+                  alt="Education Centre Groundbreaking"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
             </div>
 
-            {/* Two Cards after the Image */}
-            <div className="grid grid-cols-2 gap-4 pt-1">
+            {/* Two Cards after the Image - Horizontally Inline with Right Cards */}
+            <div className="grid grid-cols-2 gap-4 mt-auto pt-4">
               <div className="bg-white/5 p-5 rounded-xl border border-white/5">
                 <p className="font-bold text-[#C27D38] text-2xl font-heading">Multiple</p>
                 <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Youth Programmes</p>
@@ -65,33 +67,35 @@ export default function EducationCentre() {
             </div>
           </motion.div>
 
-          {/* Right Column: Content */}
-          <motion.div variants={containerVariants} className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
-                Environmental Education Centre
-              </h2>
-              <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
-                &ldquo;{siteInfo.motto}&rdquo;
+          {/* Right Column: Content + 2 Cards */}
+          <motion.div variants={containerVariants} className="flex flex-col justify-between h-full space-y-8">
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
+                  Environmental Education Centre
+                </h2>
+                <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
+                  &ldquo;{siteInfo.motto}&rdquo;
+                </p>
+              </div>
+
+              <p className="text-[#F4EFEA] text-lg leading-relaxed opacity-90">
+                The AWARE / ZIMPARKS Environmental Education Centre represents a critical investment in the future of conservation. By inspiring and educating the next generation, we foster a deep understanding of our natural heritage and the urgent need to protect it for years to come.
               </p>
+
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10 space-y-3">
+                <h3 className="text-[#C27D38] font-semibold text-lg">Groundbreaking Milestone</h3>
+                <p className="text-[#FDFCFA]/80 text-sm">
+                  <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
+                </p>
+                <p className="text-[#FDFCFA]/80 text-sm leading-relaxed">
+                  <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) &amp; {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
+                </p>
+              </div>
             </div>
 
-            <p className="text-[#F4EFEA] text-lg leading-relaxed opacity-90">
-              The AWARE / ZIMPARKS Environmental Education Centre represents a critical investment in the future of conservation. By inspiring and educating the next generation, we foster a deep understanding of our natural heritage and the urgent need to protect it for years to come.
-            </p>
-
-            <div className="bg-white/5 rounded-xl p-6 border border-white/10 space-y-3">
-              <h3 className="text-[#C27D38] font-semibold text-lg">Groundbreaking Milestone</h3>
-              <p className="text-[#FDFCFA]/80 text-sm">
-                <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
-              </p>
-              <p className="text-[#FDFCFA]/80 text-sm leading-relaxed">
-                <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) &amp; {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
-              </p>
-            </div>
-
-            {/* Impact Grid — Top 2 cards */}
-            <div className="grid grid-cols-2 gap-4">
+            {/* Impact Grid — Top 2 cards - Horizontally Inline with Left Cards */}
+            <div className="grid grid-cols-2 gap-4 mt-auto pt-4">
               <div className="bg-white/5 p-5 rounded-xl border border-white/5">
                 <p className="font-bold text-[#C27D38] text-2xl font-heading">Growing</p>
                 <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Schools Engaged</p>
