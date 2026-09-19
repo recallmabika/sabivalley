@@ -217,19 +217,32 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>
-            &copy; 2026 Chipinge Safari Area. All rights reserved.
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <p>&copy; 2026 Chipinge Safari Area. All rights reserved.</p>
+            <div className="flex items-center gap-4 text-xs text-gray-400">
+              <Link href="/terms" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
+                Terms &amp; Conditions
+              </Link>
+              <span>•</span>
+              <Link href="/privacy" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
+                Privacy Policy
+              </Link>
+              <span>•</span>
+              <Link href="/park-rules" className="hover:text-[#52b788] transition-colors underline underline-offset-2">
+                Park Rules
+              </Link>
+            </div>
+          </div>
+          <p className="text-center text-xs sm:text-sm">
+            In partnership with ZIMPARKS &amp; AWARE Germany e.V.
           </p>
-          <p className="text-center">
-            In partnership with ZIMPARKS & AWARE Germany e.V.
-          </p>
-          <p>
+          <p className="text-xs sm:text-sm">
             Web design and development by{" "}
             <a 
               href="https://zitrac.co.zw" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#C27D38] hover:text-white font-semibold underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded"
+              className="text-[#52b788] hover:text-white font-semibold underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded"
             >
               ZITRAC
             </a>

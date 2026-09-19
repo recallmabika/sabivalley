@@ -131,8 +131,8 @@ export default function BookingInquiry() {
   };
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      {/* Wildlife & Ranger Background covering the whole window */}
+    <section id="contact" className="relative py-24 overflow-hidden bg-white">
+      {/* Wildlife & Ranger Background covering the whole window - Sharp, No Blur, Natural Colors */}
       <div className="absolute inset-0 pointer-events-none select-none">
         <Image
           src="/images/safari/ranger-elephants-contact.jpg"
@@ -140,10 +140,10 @@ export default function BookingInquiry() {
           fill
           className="object-cover object-center"
           priority
-          quality={85}
+          quality={100}
         />
-        {/* Soft atmospheric overlay for high readability while displaying the full photo */}
-        <div className="absolute inset-0 bg-[#F4EFEA]/80 backdrop-blur-[1px]" />
+        {/* Crisp neutral light overlay (no goldish tint, no blur) for perfect readability */}
+        <div className="absolute inset-0 bg-white/30" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
@@ -155,52 +155,52 @@ export default function BookingInquiry() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-heading text-[#1B3B2B] mb-6">Plan Your Visit</h2>
-            <p className="text-lg text-gray-800 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-800 mb-8 leading-relaxed font-medium">
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
-            {/* Transparent Contact Details Card */}
-            <div className="p-5 sm:p-6 rounded-xl border border-gray-300/80 mb-6 bg-white/40 backdrop-blur-sm shadow-sm">
+            {/* Fully Transparent Contact Details Card */}
+            <div className="p-5 sm:p-6 rounded-xl border border-gray-300 mb-6 bg-transparent">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <MapPin className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Location</h3>
-                    <p className="text-xs sm:text-sm text-gray-700">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
+                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <Phone className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Phone</h3>
-                    <p className="text-xs sm:text-sm text-gray-700">Contact ZIMPARKS SELR Office</p>
+                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Contact ZIMPARKS SELR Office</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <Mail className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Email</h3>
-                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-700 hover:text-[#C27D38] transition-colors break-all">
+                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-800 font-medium hover:text-[#1B3B2B] underline decoration-gray-400 transition-colors break-all">
                       info@chipingesafari.co.zw
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <Clock className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Operating Hours</h3>
-                    <p className="text-xs sm:text-sm text-gray-700">Open Daily: 06:00 – 18:00</p>
+                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Open Daily: 06:00 – 18:00</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Transparent Important Visitor Notes */}
-            <div className="p-6 rounded-xl border border-[#1B3B2B]/30 text-[#1B3B2B] bg-white/40 backdrop-blur-sm shadow-sm">
-              <h3 className="font-heading text-xl mb-3 text-[#C27D38] font-bold">Important Visitor Notes</h3>
+            {/* Fully Transparent Important Visitor Notes */}
+            <div className="p-6 rounded-xl border border-gray-300 text-[#1B3B2B] bg-transparent">
+              <h3 className="font-heading text-xl mb-3 text-[#1B3B2B] font-bold">Important Visitor Notes</h3>
               <ul className="list-disc pl-5 space-y-2 text-sm text-gray-800 font-medium">
                 <li>All walking safaris require a professional armed ranger accompaniment.</li>
                 <li>Strictly no littering. Take only photographs, leave only footprints.</li>
@@ -210,13 +210,13 @@ export default function BookingInquiry() {
             </div>
           </motion.div>
 
-          {/* Transparent Inquiry Form Card */}
+          {/* Fully Transparent Inquiry Form Card */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 md:p-10 rounded-2xl border border-gray-300/80 bg-white/40 backdrop-blur-sm shadow-sm"
+            className="p-8 md:p-10 rounded-2xl border border-gray-300 bg-transparent"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
             
@@ -236,14 +236,14 @@ export default function BookingInquiry() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder=" "
-                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 ${
-                        errors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
+                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
+                        errors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
                       }`}
                     />
                     <label 
                       htmlFor="name" 
                       className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                        errors.name ? "text-red-500 peer-focus:text-red-500" : "text-gray-500 peer-focus:text-[#C27D38]"
+                        errors.name ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
                       }`}
                     >
                       Full Name *
@@ -261,14 +261,14 @@ export default function BookingInquiry() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder=" "
-                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 ${
-                        errors.email ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
+                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
+                        errors.email ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
                       }`}
                     />
                     <label 
                       htmlFor="email" 
                       className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                        errors.email ? "text-red-500 peer-focus:text-red-500" : "text-gray-500 peer-focus:text-[#C27D38]"
+                        errors.email ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
                       }`}
                     >
                       Email Address *
@@ -287,14 +287,14 @@ export default function BookingInquiry() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 ${
-                          errors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
+                          errors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="phone" 
                         className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.phone ? "text-red-500 peer-focus:text-red-500" : "text-gray-500 peer-focus:text-[#C27D38]"
+                          errors.phone ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
                         }`}
                       >
                         Phone Number
@@ -313,14 +313,14 @@ export default function BookingInquiry() {
                         value={formData.visitors}
                         onChange={handleChange}
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 ${
-                          errors.visitors ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
+                          errors.visitors ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="visitors" 
                         className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.visitors ? "text-red-500 peer-focus:text-red-500" : "text-gray-500 peer-focus:text-[#C27D38]"
+                          errors.visitors ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
                         }`}
                       >
                         Number of Visitors *
@@ -341,14 +341,14 @@ export default function BookingInquiry() {
                           errors.activity 
                             ? "border-red-400" 
                             : isDropdownOpen 
-                              ? "border-[#C27D38]" 
+                              ? "border-[#1B3B2B]" 
                               : "border-gray-300 hover:border-gray-400"
                         }`}
                       >
-                        <span className={selectedActivity ? "text-gray-900 text-sm" : "text-transparent text-sm"}>
+                        <span className={selectedActivity ? "text-gray-900 font-medium text-sm" : "text-transparent text-sm"}>
                           {selectedActivity || "Placeholder"}
                         </span>
-                        <span className={`transition-transform duration-200 text-xs text-gray-500 ${isDropdownOpen ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform duration-200 text-xs text-gray-700 ${isDropdownOpen ? "rotate-180" : ""}`}>
                           ▼
                         </span>
                       </button>
@@ -356,10 +356,10 @@ export default function BookingInquiry() {
                       <span 
                         className={`absolute left-4 pointer-events-none transition-all duration-200 origin-left text-sm ${
                           selectedActivity || isDropdownOpen
-                            ? "top-1.5 text-xs text-[#C27D38] font-medium"
+                            ? "top-1.5 text-xs text-[#1B3B2B] font-semibold"
                             : errors.activity 
                               ? "top-3.5 text-red-500" 
-                              : "top-3.5 text-gray-500"
+                              : "top-3.5 text-gray-600"
                         }`}
                       >
                         Primary Activity Interest *
@@ -385,13 +385,13 @@ export default function BookingInquiry() {
                                 }}
                                 className={`w-full px-4 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
                                   selectedActivity === activity.title
-                                    ? "bg-[#C27D38]/10 text-[#C27D38] font-semibold"
+                                    ? "bg-[#1B3B2B]/10 text-[#1B3B2B] font-semibold"
                                     : "text-gray-700 hover:bg-gray-50"
                                 }`}
                               >
                                 <span>{activity.title}</span>
                                 {selectedActivity === activity.title && (
-                                  <span className="text-[#C27D38] font-bold">✓</span>
+                                  <span className="text-[#1B3B2B] font-bold">✓</span>
                                 )}
                               </button>
                             ))}
@@ -410,14 +410,14 @@ export default function BookingInquiry() {
                         type="text" 
                         id="flatpickr-date" 
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent cursor-pointer text-gray-900 text-sm ${
-                          errors.date ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent cursor-pointer text-gray-900 font-medium text-sm ${
+                          errors.date ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="flatpickr-date" 
                         className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.date ? "text-red-500 peer-focus:text-red-500" : "text-gray-500 peer-focus:text-[#C27D38]"
+                          errors.date ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
                         }`}
                       >
                         Preferred Date *
@@ -436,11 +436,11 @@ export default function BookingInquiry() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder=" "
-                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors resize-none bg-transparent text-gray-900"
+                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#1B3B2B] outline-none transition-colors resize-none bg-transparent text-gray-900 font-medium"
                     ></textarea>
                     <label 
                       htmlFor="message" 
-                      className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                      className="absolute left-4 top-3.5 text-gray-600 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#1B3B2B] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600"
                     >
                       Message / Special Requests
                     </label>
@@ -449,7 +449,7 @@ export default function BookingInquiry() {
 
                 <button 
                   type="submit" 
-                  className="w-full bg-[#C27D38] hover:bg-[#8C4F2B] text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center tracking-wide shadow-md"
+                  className="w-full bg-[#1B3B2B] hover:bg-[#12281D] text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center tracking-wide shadow-md"
                 >
                   Send Inquiry
                 </button>
