@@ -7,7 +7,7 @@ import Gallery from "@/components/Gallery";
 import BookingInquiry from "@/components/BookingInquiry";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingChatWidget from "@/components/FloatingChatWidget";
 
 export default function Home() {
   return (
@@ -22,8 +22,8 @@ export default function Home() {
         <BookingInquiry />
       </main>
       <Footer />
+      <FloatingChatWidget />
       <ScrollToTop />
-      <WhatsAppButton />
     </>
   );
 }

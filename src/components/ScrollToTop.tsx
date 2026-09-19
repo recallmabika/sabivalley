@@ -36,7 +36,7 @@ export default function ScrollToTop() {
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
           aria-label="Scroll to top of page"
-          className="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-[#1B3B2B] hover:bg-[#12281D] text-white shadow-xl flex items-center justify-center border border-white/15 transition-transform hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C27D38]"
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#1B3B2B] hover:bg-[#12281D] text-white shadow-xl flex items-center justify-center border border-white/15 transition-transform hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C27D38]"
         >
           {/* Clean upward chevron */}
           <svg
