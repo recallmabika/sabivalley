@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { activities } from "@/data/content";
 import flatpickr from "flatpickr";
@@ -130,8 +131,21 @@ export default function BookingInquiry() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#F4EFEA]">
-      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+    <section id="contact" className="relative py-24 bg-[#F4EFEA] overflow-hidden">
+      {/* Zimbabwe Map Background Watermark */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-end overflow-hidden opacity-[0.09] select-none">
+        <div className="relative w-[650px] h-[650px] lg:w-[850px] lg:h-[850px] translate-x-1/4 translate-y-6">
+          <Image
+            src="/images/zimbabwe-map.png"
+            alt="Zimbabwe Map"
+            fill
+            className="object-contain"
+            priority={false}
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
