@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +35,45 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+# Sabi Valley | Chipinge Safari Area Website
+
+## Standard Description
+Sabi Valley is a destination website concept for **Chipinge Safari Area**, designed to present the area as a memorable eco-tourism experience. The site highlights nature, conservation, education, and recreation through a modern, immersive interface built with **Next.js (App Router)**, **Tailwind CSS**, and **Framer Motion**.
+
+The goal is to help visitors discover what Chipinge Safari Area offers, plan their visit easily, and connect with the unique outdoor experiences available in the region.
+
+## Core Attractions to Showcase
+- Medicinal/Herbal Garden  
+- Environmental Education Centre  
+- Campsite  
+
+### 7) Community & Conservation Positioning
+- Conservation message integrated into the experience
+- Environmental education spotlight section
+- Local community impact section (culture, guides, sustainability contribution)
+
+## Suggested High-Level Pages
+- Home  
+- Experiences/Activities  
+- Conservation & Education  
+- Gallery  
+- Plan Your Visit  
+- Contact & Directions
+
+## Success Indicators
+- Increased booking or inquiry conversions
+- Improved average session time
+- Higher engagement on activity sections
+- Better search visibility for local safari and eco-tourism queries
+
+## Getting Started
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
