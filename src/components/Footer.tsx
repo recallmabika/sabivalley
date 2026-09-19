@@ -80,30 +80,35 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Quick Links</h4>
+            <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
-                <Link href="#experiences" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <Link href="#experiences" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Experiences
                 </Link>
               </li>
               <li>
-                <Link href="#education" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <Link href="#education" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Education Centre
                 </Link>
               </li>
               <li>
-                <Link href="#garden" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <Link href="#garden" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Medicinal Garden
                 </Link>
               </li>
               <li>
-                <Link href="#gallery" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <Link href="#gallery" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Safari Gallery
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <Link href="#faqs" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Plan Your Visit
                 </Link>
               </li>
@@ -112,11 +117,11 @@ export default function Footer() {
 
           {/* Experiences */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Experiences</h4>
+            <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Experiences</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               {activityData.map((activity) => (
                 <li key={activity.id}>
-                  <Link href="#experiences" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                  <Link href="#experiences" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                     {activity.title}
                   </Link>
                 </li>
@@ -126,14 +131,14 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Contact Us</h4>
+            <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Contact Us</h4>
             <address className="not-italic space-y-3 text-sm text-gray-300">
               <p>Chipinge Safari Area<br/>South East Lowveld Region<br/>Zimbabwe</p>
               <p className="pt-2">
                 <span className="text-gray-400">Phone:</span> Contact ZIMPARKS SELR Office
               </p>
               <p>
-                <a href="mailto:info@chipingesafari.co.zw" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
+                <a href="mailto:info@chipingesafari.co.zw" className="hover:text-[#52b788] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded">
                   Email: info@chipingesafari.co.zw
                 </a>
               </p>

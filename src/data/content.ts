@@ -286,3 +286,42 @@ export const galleryCategories = [
   "Medicinal Garden",
   "Campsite & Braai",
 ] as const;
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export const faqs: FAQItem[] = [
+  {
+    question: "Where is Chipinge Safari Area located and how do I get there?",
+    answer: "Chipinge Safari Area is situated in the South East Lowveld region of Zimbabwe, along the scenic Sabi Valley basin. Access is available by road via Chipinge and Chiredzi. A 4x4 vehicle is strongly recommended for interior park tracks.",
+    category: "General & Access"
+  },
+  {
+    question: "Do I need a ranger accompaniment for nature walks?",
+    answer: "Yes. For visitor safety and wildlife conservation compliance, all walking safaris and trail hikes must be accompanied by an official armed ZIMPARKS ranger guide.",
+    category: "Activities"
+  },
+  {
+    question: "What are the park's operating hours and entry guidelines?",
+    answer: "The safari area is open daily from 06:00 to 18:00. Day visitors are welcome to register at the gate, while overnight stays at Eagle Campsite should be arranged in advance.",
+    category: "Planning & Booking"
+  },
+  {
+    question: "Can schools and educational institutions visit the Education Centre?",
+    answer: "Yes! The AWARE / ZIMPARKS Environmental Education Centre specializes in youth, school, and conservation study tours, offering interactive workshops, outdoor classes, and guided medicinal plant walks.",
+    category: "Education & Youth"
+  },
+  {
+    question: "What accommodations and recreational amenities are available?",
+    answer: "Visitors can camp under the lowveld stars at Eagle Campsite or unwind at the Chipembere Recreational Club, featuring an authentic open-air braai area and social hub shaded by indigenous trees.",
+    category: "Amenities"
+  },
+  {
+    question: "How can I book an activity or conservation tour?",
+    answer: "You can book directly by filling out the online inquiry form below, sending a message through our WhatsApp chat, or contacting the ZIMPARKS South East Lowveld regional office.",
+    category: "Planning & Booking"
+  }
+];

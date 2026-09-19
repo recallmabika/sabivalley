@@ -4,6 +4,7 @@ import Attractions from "@/components/Attractions";
 import EducationCentre from "@/components/EducationCentre";
 import HerbalGarden from "@/components/HerbalGarden";
 import Gallery from "@/components/Gallery";
+import FAQSection from "@/components/FAQSection";
 import BookingInquiry from "@/components/BookingInquiry";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -19,6 +20,7 @@ export default function Home() {
         <EducationCentre />
         <HerbalGarden />
         <Gallery />
+        <FAQSection />
         <BookingInquiry />
       </main>
       <Footer />

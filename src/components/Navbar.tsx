@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { name: "Education", href: "#education", sectionId: "education" },
   { name: "Herbal Garden", href: "#garden", sectionId: "garden" },
   { name: "Gallery", href: "#gallery", sectionId: "gallery" },
+  { name: "FAQs", href: "#faqs", sectionId: "faqs" },
   { name: "Plan Your Visit", href: "#contact", sectionId: "contact" },
 ];
 
@@ -19,7 +20,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const sectionIds = ["experiences", "education", "garden", "gallery", "contact"];
+    const sectionIds = ["experiences", "education", "garden", "gallery", "faqs", "contact"];
 
     const handleScroll = () => {
       const heroEl = document.getElementById("hero");
