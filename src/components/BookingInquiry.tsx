@@ -159,8 +159,8 @@ export default function BookingInquiry() {
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
-            {/* Defined Contact Details Card */}
-            <div className="p-5 sm:p-6 rounded-xl border-2 border-[#1B3B2B]/30 mb-6 bg-white/65 shadow-sm">
+            {/* Contact Details Card - Border Removed */}
+            <div className="p-5 sm:p-6 rounded-xl mb-6 bg-white/65 shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
@@ -198,8 +198,8 @@ export default function BookingInquiry() {
               </div>
             </div>
 
-            {/* Defined Important Visitor Notes */}
-            <div className="p-6 rounded-xl border-2 border-[#1B3B2B]/30 bg-white/65 shadow-sm">
+            {/* Important Visitor Notes - Border Removed */}
+            <div className="p-6 rounded-xl bg-white/65 shadow-sm">
               <h3 className="font-heading text-xl mb-3 text-[#1B3B2B] font-bold">Important Visitor Notes</h3>
               <ul className="list-disc pl-5 space-y-2 text-sm text-gray-900 font-medium">
                 <li>All walking safaris require a professional armed ranger accompaniment.</li>
@@ -210,13 +210,13 @@ export default function BookingInquiry() {
             </div>
           </motion.div>
 
-          {/* Defined Inquiry Form Card */}
+          {/* Inquiry Form Card - Border Removed */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 md:p-10 rounded-2xl border-2 border-[#1B3B2B]/30 bg-white/65 shadow-sm"
+            className="p-8 md:p-10 rounded-2xl bg-white/65 shadow-sm"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
             
