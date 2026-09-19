@@ -36,12 +36,12 @@ export default function EducationCentre() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
-          {/* Left Column: Education & Conservation + Feature Image */}
+          {/* Left Column: Education & Conservation + Feature Image + 2 Cards */}
           <motion.div variants={itemVariants} className="space-y-4">
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] pt-2">
-              Education & Conservation
+              Education &amp; Conservation
             </p>
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[540px] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[380px] sm:h-[460px] lg:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/safari/education-groundbreaking.jpg"
                 alt="Education Centre Groundbreaking"
@@ -50,6 +50,18 @@ export default function EducationCentre() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </div>
+
+            {/* Two Cards after the Image */}
+            <div className="grid grid-cols-2 gap-4 pt-1">
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Multiple</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Youth Programmes</p>
+              </div>
+              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <p className="font-bold text-[#C27D38] text-2xl font-heading">Enduring</p>
+                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Years of Legacy</p>
+              </div>
             </div>
           </motion.div>
 
@@ -74,11 +86,11 @@ export default function EducationCentre() {
                 <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
               </p>
               <p className="text-[#FDFCFA]/80 text-sm leading-relaxed">
-                <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) & {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
+                <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) &amp; {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
               </p>
             </div>
 
-            {/* Impact Grid — no icons, clean text cards */}
+            {/* Impact Grid — Top 2 cards */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/5 p-5 rounded-xl border border-white/5">
                 <p className="font-bold text-[#C27D38] text-2xl font-heading">Growing</p>
@@ -87,14 +99,6 @@ export default function EducationCentre() {
               <div className="bg-white/5 p-5 rounded-xl border border-white/5">
                 <p className="font-bold text-[#C27D38] text-2xl font-heading">Regional</p>
                 <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Conservation Partners</p>
-              </div>
-              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
-                <p className="font-bold text-[#C27D38] text-2xl font-heading">Multiple</p>
-                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Youth Programmes</p>
-              </div>
-              <div className="bg-white/5 p-5 rounded-xl border border-white/5">
-                <p className="font-bold text-[#C27D38] text-2xl font-heading">Enduring</p>
-                <p className="text-xs text-[#F4EFEA]/70 uppercase tracking-wider mt-1">Years of Legacy</p>
               </div>
             </div>
           </motion.div>
