@@ -159,30 +159,30 @@ export default function BookingInquiry() {
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
-            {/* Fully Transparent Contact Details Card */}
-            <div className="p-5 sm:p-6 rounded-xl border border-gray-300 mb-6 bg-transparent">
+            {/* Defined Contact Details Card */}
+            <div className="p-5 sm:p-6 rounded-xl border-2 border-[#1B3B2B]/30 mb-6 bg-white/65 shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Location</h3>
-                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
+                    <h3 className="text-sm font-bold text-[#1B3B2B]">Location</h3>
+                    <p className="text-xs sm:text-sm text-gray-900 font-medium">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
                   <Phone className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Phone</h3>
-                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Contact ZIMPARKS SELR Office</p>
+                    <h3 className="text-sm font-bold text-[#1B3B2B]">Phone</h3>
+                    <p className="text-xs sm:text-sm text-gray-900 font-medium">Contact ZIMPARKS SELR Office</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <Mail className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Email</h3>
-                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-800 font-medium hover:text-[#1B3B2B] underline decoration-gray-400 transition-colors break-all">
+                    <h3 className="text-sm font-bold text-[#1B3B2B]">Email</h3>
+                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-900 font-semibold hover:text-[#1B3B2B] underline decoration-gray-400 transition-colors break-all">
                       info@chipingesafari.co.zw
                     </a>
                   </div>
@@ -191,17 +191,17 @@ export default function BookingInquiry() {
                 <div className="flex items-start">
                   <Clock className="w-5 h-5 text-[#1B3B2B] mt-0.5 mr-3 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Operating Hours</h3>
-                    <p className="text-xs sm:text-sm text-gray-800 font-medium">Open Daily: 06:00 – 18:00</p>
+                    <h3 className="text-sm font-bold text-[#1B3B2B]">Operating Hours</h3>
+                    <p className="text-xs sm:text-sm text-gray-900 font-medium">Open Daily: 06:00 – 18:00</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Fully Transparent Important Visitor Notes */}
-            <div className="p-6 rounded-xl border border-gray-300 text-[#1B3B2B] bg-transparent">
+            {/* Defined Important Visitor Notes */}
+            <div className="p-6 rounded-xl border-2 border-[#1B3B2B]/30 bg-white/65 shadow-sm">
               <h3 className="font-heading text-xl mb-3 text-[#1B3B2B] font-bold">Important Visitor Notes</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-800 font-medium">
+              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-900 font-medium">
                 <li>All walking safaris require a professional armed ranger accompaniment.</li>
                 <li>Strictly no littering. Take only photographs, leave only footprints.</li>
                 <li>Respect wildlife distances and adhere to all guide instructions.</li>
@@ -210,13 +210,13 @@ export default function BookingInquiry() {
             </div>
           </motion.div>
 
-          {/* Fully Transparent Inquiry Form Card */}
+          {/* Defined Inquiry Form Card */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 md:p-10 rounded-2xl border border-gray-300 bg-transparent"
+            className="p-8 md:p-10 rounded-2xl border-2 border-[#1B3B2B]/30 bg-white/65 shadow-sm"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
             
@@ -236,20 +236,20 @@ export default function BookingInquiry() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder=" "
-                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
-                        errors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
+                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border-2 outline-none transition-all bg-white/85 hover:bg-white focus:bg-white text-gray-900 font-semibold text-sm ${
+                        errors.name ? "border-red-500 focus:border-red-600" : "border-[#1B3B2B]/35 focus:border-[#1B3B2B]"
                       }`}
                     />
                     <label 
                       htmlFor="name" 
-                      className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                        errors.name ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
+                      className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs font-semibold ${
+                        errors.name ? "text-red-600 peer-focus:text-red-600" : "text-gray-800 peer-focus:text-[#1B3B2B] peer-focus:font-bold"
                       }`}
                     >
                       Full Name *
                     </label>
                   </div>
-                  {errors.name && <p className="text-xs text-red-500 mt-1 pl-1">{errors.name}</p>}
+                  {errors.name && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.name}</p>}
                 </div>
 
                 {/* Email Address - Floating Label */}
@@ -261,20 +261,20 @@ export default function BookingInquiry() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder=" "
-                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
-                        errors.email ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
+                      className={`peer w-full px-4 pt-5 pb-2 rounded-lg border-2 outline-none transition-all bg-white/85 hover:bg-white focus:bg-white text-gray-900 font-semibold text-sm ${
+                        errors.email ? "border-red-500 focus:border-red-600" : "border-[#1B3B2B]/35 focus:border-[#1B3B2B]"
                       }`}
                     />
                     <label 
                       htmlFor="email" 
-                      className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                        errors.email ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
+                      className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs font-semibold ${
+                        errors.email ? "text-red-600 peer-focus:text-red-600" : "text-gray-800 peer-focus:text-[#1B3B2B] peer-focus:font-bold"
                       }`}
                     >
                       Email Address *
                     </label>
                   </div>
-                  {errors.email && <p className="text-xs text-red-500 mt-1 pl-1">{errors.email}</p>}
+                  {errors.email && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.email}</p>}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -287,20 +287,20 @@ export default function BookingInquiry() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
-                          errors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border-2 outline-none transition-all bg-white/85 hover:bg-white focus:bg-white text-gray-900 font-semibold text-sm ${
+                          errors.phone ? "border-red-500 focus:border-red-600" : "border-[#1B3B2B]/35 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="phone" 
-                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.phone ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
+                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs font-semibold ${
+                          errors.phone ? "text-red-600 peer-focus:text-red-600" : "text-gray-800 peer-focus:text-[#1B3B2B] peer-focus:font-bold"
                         }`}
                       >
                         Phone Number
                       </label>
                     </div>
-                    {errors.phone && <p className="text-xs text-red-500 mt-1 pl-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.phone}</p>}
                   </div>
 
                   {/* Number of Visitors - Floating Label */}
@@ -313,20 +313,20 @@ export default function BookingInquiry() {
                         value={formData.visitors}
                         onChange={handleChange}
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent text-gray-900 font-medium ${
-                          errors.visitors ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border-2 outline-none transition-all bg-white/85 hover:bg-white focus:bg-white text-gray-900 font-semibold text-sm ${
+                          errors.visitors ? "border-red-500 focus:border-red-600" : "border-[#1B3B2B]/35 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="visitors" 
-                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.visitors ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
+                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs font-semibold ${
+                          errors.visitors ? "text-red-600 peer-focus:text-red-600" : "text-gray-800 peer-focus:text-[#1B3B2B] peer-focus:font-bold"
                         }`}
                       >
                         Number of Visitors *
                       </label>
                     </div>
-                    {errors.visitors && <p className="text-xs text-red-500 mt-1 pl-1">{errors.visitors}</p>}
+                    {errors.visitors && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.visitors}</p>}
                   </div>
                 </div>
 
@@ -337,29 +337,29 @@ export default function BookingInquiry() {
                       <button
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className={`w-full px-4 pt-5 pb-2 rounded-lg border text-left bg-transparent flex items-center justify-between transition-colors outline-none ${
+                        className={`w-full px-4 pt-5 pb-2 rounded-lg border-2 text-left bg-white/85 hover:bg-white flex items-center justify-between transition-all outline-none ${
                           errors.activity 
-                            ? "border-red-400" 
+                            ? "border-red-500" 
                             : isDropdownOpen 
                               ? "border-[#1B3B2B]" 
-                              : "border-gray-300 hover:border-gray-400"
+                              : "border-[#1B3B2B]/35 hover:border-[#1B3B2B]"
                         }`}
                       >
-                        <span className={selectedActivity ? "text-gray-900 font-medium text-sm" : "text-transparent text-sm"}>
+                        <span className={selectedActivity ? "text-gray-900 font-semibold text-sm" : "text-transparent text-sm"}>
                           {selectedActivity || "Placeholder"}
                         </span>
-                        <span className={`transition-transform duration-200 text-xs text-gray-700 ${isDropdownOpen ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform duration-200 text-xs text-[#1B3B2B] font-bold ${isDropdownOpen ? "rotate-180" : ""}`}>
                           ▼
                         </span>
                       </button>
 
                       <span 
-                        className={`absolute left-4 pointer-events-none transition-all duration-200 origin-left text-sm ${
+                        className={`absolute left-4 pointer-events-none transition-all duration-200 origin-left text-sm font-semibold ${
                           selectedActivity || isDropdownOpen
-                            ? "top-1.5 text-xs text-[#1B3B2B] font-semibold"
+                            ? "top-1.5 text-xs text-[#1B3B2B] font-bold"
                             : errors.activity 
-                              ? "top-3.5 text-red-500" 
-                              : "top-3.5 text-gray-600"
+                              ? "top-3.5 text-red-600" 
+                              : "top-3.5 text-gray-800"
                         }`}
                       >
                         Primary Activity Interest *
@@ -386,7 +386,7 @@ export default function BookingInquiry() {
                                 className={`w-full px-4 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
                                   selectedActivity === activity.title
                                     ? "bg-[#1B3B2B]/10 text-[#1B3B2B] font-semibold"
-                                    : "text-gray-700 hover:bg-gray-50"
+                                    : "text-gray-800 hover:bg-gray-50"
                                 }`}
                               >
                                 <span>{activity.title}</span>
@@ -399,7 +399,7 @@ export default function BookingInquiry() {
                         )}
                       </AnimatePresence>
                     </div>
-                    {errors.activity && <p className="text-xs text-red-500 mt-1 pl-1">{errors.activity}</p>}
+                    {errors.activity && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.activity}</p>}
                   </div>
 
                   {/* Flatpickr Date Field - Floating Label */}
@@ -410,20 +410,20 @@ export default function BookingInquiry() {
                         type="text" 
                         id="flatpickr-date" 
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent cursor-pointer text-gray-900 font-medium text-sm ${
-                          errors.date ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#1B3B2B]"
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border-2 outline-none transition-all bg-white/85 hover:bg-white focus:bg-white cursor-pointer text-gray-900 font-semibold text-sm ${
+                          errors.date ? "border-red-500 focus:border-red-600" : "border-[#1B3B2B]/35 focus:border-[#1B3B2B]"
                         }`}
                       />
                       <label 
                         htmlFor="flatpickr-date" 
-                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
-                          errors.date ? "text-red-500 peer-focus:text-red-500" : "text-gray-600 peer-focus:text-[#1B3B2B]"
+                        className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs font-semibold ${
+                          errors.date ? "text-red-600 peer-focus:text-red-600" : "text-gray-800 peer-focus:text-[#1B3B2B] peer-focus:font-bold"
                         }`}
                       >
                         Preferred Date *
                       </label>
                     </div>
-                    {errors.date && <p className="text-xs text-red-500 mt-1 pl-1">{errors.date}</p>}
+                    {errors.date && <p className="text-xs text-red-600 font-medium mt-1 pl-1">{errors.date}</p>}
                   </div>
                 </div>
 
@@ -436,11 +436,11 @@ export default function BookingInquiry() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder=" "
-                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#1B3B2B] outline-none transition-colors resize-none bg-transparent text-gray-900 font-medium"
+                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border-2 border-[#1B3B2B]/35 focus:border-[#1B3B2B] outline-none transition-all resize-none bg-white/85 hover:bg-white focus:bg-white text-gray-900 font-semibold text-sm"
                     ></textarea>
                     <label 
                       htmlFor="message" 
-                      className="absolute left-4 top-3.5 text-gray-600 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#1B3B2B] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600"
+                      className="absolute left-4 top-3.5 text-gray-800 font-semibold text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#1B3B2B] peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-800"
                     >
                       Message / Special Requests
                     </label>
