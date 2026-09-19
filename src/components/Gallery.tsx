@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, ZoomIn } from "lucide-react";
 import { galleryImages, galleryCategories } from "@/data/content";
 
 export default function Gallery() {
@@ -18,10 +17,10 @@ export default function Gallery() {
     <section id="gallery" className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <span className="inline-flex items-center rounded-full bg-[#1B3B2B]/10 px-3 py-1 text-sm font-medium text-[#1B3B2B] ring-1 ring-inset ring-[#1B3B2B]/20 mb-6">
+          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             Visual Journey
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading">
             Safari Gallery
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
@@ -72,10 +71,10 @@ export default function Gallery() {
                 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-[#1B3B2B]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                  <ZoomIn className="text-white w-8 h-8 mb-2" />
-                  <p className="text-white font-medium px-2 py-1 bg-black/30 rounded" style={{ fontFamily: 'var(--font-body)' }}>
+                  <p className="text-white font-medium px-2 py-1 bg-black/30 rounded">
                     {image.alt}
                   </p>
+                  <span className="text-[#C27D38] text-xs uppercase tracking-wider font-semibold mt-2">View</span>
                 </div>
               </motion.div>
             ))}
@@ -94,14 +93,14 @@ export default function Gallery() {
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white transition-colors z-50"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center text-white/70 hover:text-white text-3xl font-light transition-colors z-50 bg-black/40 hover:bg-black/60 rounded-full"
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImage(null);
               }}
+              aria-label="Close"
             >
-              <X className="w-8 h-8" />
-              <span className="sr-only">Close</span>
+              ×
             </button>
             
             <motion.div
