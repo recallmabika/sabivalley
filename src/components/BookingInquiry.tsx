@@ -3,17 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, MapPin, Phone, Mail, Clock } from "lucide-react";
-
-const activities = [
-  "Guided Walking Safaris",
-  "Game Drives",
-  "Birdwatching",
-  "Botanical Tours",
-  "Cultural & Historical Tours",
-  "Anti-Poaching Experiences",
-  "School Conservation Camps",
-  "Photographic Safaris"
-];
+import { activities } from "@/data/content";
 
 export default function BookingInquiry() {
   const [submitted, setSubmitted] = useState(false);
@@ -155,8 +145,8 @@ export default function BookingInquiry() {
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors bg-white"
                     >
                       <option value="">Select an activity...</option>
-                      {activities.map((activity, idx) => (
-                        <option key={idx} value={activity}>{activity}</option>
+                      {activities.map((activity) => (
+                        <option key={activity.id} value={activity.title}>{activity.title}</option>
                       ))}
                     </select>
                   </div>
