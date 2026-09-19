@@ -43,13 +43,13 @@ export default function FloatingChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-100 overflow-hidden p-2 space-y-1"
+            className="mb-3 w-64 bg-[#1B3B2B]/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 overflow-hidden p-2 space-y-1"
           >
-            <div className="px-3 py-2 border-b border-gray-100">
-              <p className="text-xs font-semibold text-[#1B3B2B] uppercase tracking-wider">
+            <div className="px-3 py-2 border-b border-white/10">
+              <p className="text-xs font-semibold text-[#52b788] uppercase tracking-wider">
                 Connect with Us
               </p>
-              <p className="text-[11px] text-gray-500">
+              <p className="text-[11px] text-white/70">
                 Choose your preferred communication channel
               </p>
             </div>
@@ -60,19 +60,19 @@ export default function FloatingChatWidget() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors group"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-colors group"
             >
-              <div className="w-8 h-8 rounded-full bg-[#25D366]/15 text-[#25D366] flex items-center justify-center shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+              <div className="w-8 h-8 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12.004 0C5.378 0 0 5.378 0 12.004c0 2.115.552 4.179 1.602 6.002L.055 24l6.168-1.502c1.758.96 3.757 1.506 5.781 1.506 6.626 0 12.004-5.378 12.004-12.004C24.008 5.378 18.63 0 12.004 0zm0 21.996c-1.859 0-3.682-.5-5.275-1.451l-.378-.225-3.659.892.909-3.565-.246-.392c-1.045-1.662-1.599-3.585-1.599-5.551 0-5.513 4.483-9.996 9.998-9.996 5.514 0 9.998 4.483 9.998 9.996 0 5.513-4.484 9.996-9.998 9.996z" />
                   <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.98-.276-.1-.477-.15-.678.15-.2.301-.778.98-.954 1.18-.176.201-.351.226-.653.076-.301-.15-1.272-.469-2.424-1.497-.897-.799-1.502-1.787-1.678-2.088-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.176.201-.301.301-.502.1-.201.05-.377-.025-.527-.075-.15-.678-1.635-.929-2.238-.244-.588-.493-.508-.678-.518-.175-.009-.376-.01-.577-.01s-.527.075-.803.376c-.276.301-1.055 1.03-1.055 2.512s1.08 2.914 1.231 3.115c.15.201 2.126 3.246 5.15 4.553.719.311 1.28.497 1.718.636.723.23 1.381.197 1.901.12.579-.086 1.78-.728 2.03-1.431.251-.703.251-1.305.176-1.431-.075-.126-.276-.201-.577-.351z" />
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-800 group-hover:text-[#25D366] transition-colors">
+                <p className="text-xs font-semibold text-white group-hover:text-[#25D366] transition-colors">
                   WhatsApp Chat
                 </p>
-                <p className="text-[11px] text-gray-500">Fast replies via WhatsApp</p>
+                <p className="text-[11px] text-white/70">Fast replies via WhatsApp</p>
               </div>
             </a>
 
@@ -80,9 +80,9 @@ export default function FloatingChatWidget() {
             <a
               href="#contact"
               onClick={scrollToInquiry}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors group"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-colors group"
             >
-              <div className="w-8 h-8 rounded-full bg-[#C27D38]/15 text-[#C27D38] flex items-center justify-center shrink-0 group-hover:bg-[#C27D38] group-hover:text-white transition-colors">
+              <div className="w-8 h-8 rounded-full bg-[#C27D38]/25 text-[#E5984A] flex items-center justify-center shrink-0 group-hover:bg-[#C27D38] group-hover:text-white transition-colors">
                 <svg
                   className="w-4 h-4 fill-none stroke-current"
                   viewBox="0 0 24 24"
@@ -94,10 +94,10 @@ export default function FloatingChatWidget() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-800 group-hover:text-[#C27D38] transition-colors">
+                <p className="text-xs font-semibold text-white group-hover:text-[#E5984A] transition-colors">
                   Webchat Messaging
                 </p>
-                <p className="text-[11px] text-gray-500">Send an inquiry directly</p>
+                <p className="text-[11px] text-white/70">Send an inquiry directly</p>
               </div>
             </a>
 
@@ -105,9 +105,9 @@ export default function FloatingChatWidget() {
             <a
               href="tel:+263771234567"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors group"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-colors group"
             >
-              <div className="w-8 h-8 rounded-full bg-[#1B3B2B]/15 text-[#1B3B2B] flex items-center justify-center shrink-0 group-hover:bg-[#1B3B2B] group-hover:text-white transition-colors">
+              <div className="w-8 h-8 rounded-full bg-[#52b788]/20 text-[#52b788] flex items-center justify-center shrink-0 group-hover:bg-[#52b788] group-hover:text-white transition-colors">
                 <svg
                   className="w-4 h-4 fill-none stroke-current"
                   viewBox="0 0 24 24"
@@ -119,10 +119,10 @@ export default function FloatingChatWidget() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-800 group-hover:text-[#1B3B2B] transition-colors">
+                <p className="text-xs font-semibold text-white group-hover:text-[#52b788] transition-colors">
                   Call ZIMPARKS SELR
                 </p>
-                <p className="text-[11px] text-gray-500">+263 77 123 4567</p>
+                <p className="text-[11px] text-white/70">+263 77 123 4567</p>
               </div>
             </a>
           </motion.div>
