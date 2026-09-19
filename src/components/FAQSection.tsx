@@ -29,7 +29,7 @@ export default function FAQSection() {
         </div>
 
         {/* Accordion FAQ List */}
-        <div className="space-y-4">
+        <div>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -39,17 +39,13 @@ export default function FAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen
-                    ? "border-[#1B3B2B]/30 shadow-md bg-[#1B3B2B]/[0.02]"
-                    : "border-gray-200 hover:border-gray-300 bg-white"
-                }`}
+                className="border-b border-gray-200 last:border-b-0"
               >
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isOpen}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C27D38] rounded-2xl"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus-visible:outline-none"
                 >
                   <span className="font-heading font-semibold text-[#1B3B2B] text-base sm:text-lg pr-2">
                     {faq.question}
@@ -90,16 +86,18 @@ export default function FAQSection() {
         </div>
 
         {/* Contact prompt */}
-        <div className="mt-14 text-center p-6 rounded-2xl bg-sand border border-[#1B3B2B]/10">
-          <p className="font-heading font-semibold text-[#1B3B2B] text-lg mb-1">
-            Have a question not listed here?
-          </p>
-          <p className="text-sm text-gray-600 mb-4">
-            Our park rangers and staff are available to assist you with tour planning, school visits, and logistics.
-          </p>
+        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 border-t border-gray-200">
+          <div>
+            <p className="font-heading font-semibold text-[#1B3B2B] text-lg mb-1">
+              Have a question not listed here?
+            </p>
+            <p className="text-sm text-gray-600">
+              Our park rangers and staff are available to assist you with tour planning, school visits, and logistics.
+            </p>
+          </div>
           <a
             href="#contact"
-            className="inline-block px-6 py-2.5 bg-[#1B3B2B] hover:bg-[#12281D] text-white text-sm font-medium rounded-lg transition-colors shadow-sm"
+            className="shrink-0 px-6 py-2.5 bg-[#1B3B2B] hover:bg-[#12281D] text-white text-sm font-medium rounded-lg transition-colors"
           >
             Inquire Directly
           </a>
