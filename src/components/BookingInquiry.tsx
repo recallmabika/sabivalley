@@ -1,27 +1,69 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, MapPin, Phone, Mail, Clock } from "lucide-react";
-
-const activities = [
-  "Guided Walking Safaris",
-  "Game Drives",
-  "Birdwatching",
-  "Botanical Tours",
-  "Cultural & Historical Tours",
-  "Anti-Poaching Experiences",
-  "School Conservation Camps",
-  "Photographic Safaris"
-];
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { activities } from "@/data/content";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 
 export default function BookingInquiry() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedActivity, setSelectedActivity] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [validationError, setValidationError] = useState("");
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dateInputRef = useRef<HTMLInputElement>(null);
+
+  // Initialize Flatpickr
+  useEffect(() => {
+    if (dateInputRef.current) {
+      const fp = flatpickr(dateInputRef.current, {
+        minDate: "today",
+        dateFormat: "F j, Y",
+        disableMobile: true,
+        onChange: (selectedDates, dateStr) => {
+          setSelectedDate(dateStr);
+          setValidationError("");
+        },
+      });
+
+      return () => {
+        fp.destroy();
+      };
+    }
+  }, []);
+
+  // Close custom dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedActivity) {
+      setValidationError("Please select an activity from the list.");
+      return;
+    }
+    if (!selectedDate) {
+      setValidationError("Please select your preferred date.");
+      return;
+    }
+    setValidationError("");
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => {
+      setSubmitted(false);
+      setSelectedActivity("");
+      setSelectedDate("");
+    }, 5000);
   };
 
   return (
@@ -100,27 +142,32 @@ export default function BookingInquiry() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      required 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                      placeholder="Jane Doe"
-                    />
+                {validationError && (
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+                    {validationError}
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      required 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                      placeholder="jane@example.com"
-                    />
-                  </div>
+                )}
+
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
+                    placeholder="Jane Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
+                    placeholder="jane@example.com"
+                  />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -147,26 +194,72 @@ export default function BookingInquiry() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="activity" className="block text-sm font-medium text-gray-700 mb-1">Primary Activity Interest</label>
-                    <select 
-                      id="activity" 
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors bg-white"
+                  {/* Custom Dropdown Field */}
+                  <div className="relative" ref={dropdownRef}>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Primary Activity Interest</label>
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className={`w-full px-4 py-3 rounded-lg border text-left bg-white flex items-center justify-between transition-all outline-none ${
+                        isDropdownOpen 
+                          ? "border-[#C27D38] ring-2 ring-[#C27D38]/20" 
+                          : "border-gray-300 hover:border-gray-400"
+                      }`}
                     >
-                      <option value="">Select an activity...</option>
-                      {activities.map((activity, idx) => (
-                        <option key={idx} value={activity}>{activity}</option>
-                      ))}
-                    </select>
+                      <span className={selectedActivity ? "text-gray-900 font-medium" : "text-gray-400"}>
+                        {selectedActivity || "Select an activity..."}
+                      </span>
+                      <span className={`transition-transform duration-200 text-xs text-gray-500 ${isDropdownOpen ? "rotate-180" : ""}`}>
+                        ▼
+                      </span>
+                    </button>
+
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute z-30 left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl max-h-60 overflow-y-auto py-1"
+                        >
+                          {activities.map((activity) => (
+                            <button
+                              key={activity.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedActivity(activity.title);
+                                setIsDropdownOpen(false);
+                                setValidationError("");
+                              }}
+                              className={`w-full px-4 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
+                                selectedActivity === activity.title
+                                  ? "bg-[#C27D38]/10 text-[#C27D38] font-semibold"
+                                  : "text-gray-700 hover:bg-gray-50"
+                              }`}
+                            >
+                              <span>{activity.title}</span>
+                              {selectedActivity === activity.title && (
+                                <span className="text-[#C27D38] font-bold">✓</span>
+                              )}
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
+
+                  {/* Flatpickr Date Field */}
                   <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                    <label htmlFor="flatpickr-date" className="block text-sm font-medium text-gray-700 mb-1">
+                      Preferred Date
+                    </label>
                     <input 
-                      type="date" 
-                      id="date" 
-                      required 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
+                      ref={dateInputRef}
+                      type="text" 
+                      id="flatpickr-date" 
+                      placeholder="Select date..."
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors bg-white cursor-pointer"
                     />
                   </div>
                 </div>
@@ -183,10 +276,9 @@ export default function BookingInquiry() {
 
                 <button 
                   type="submit" 
-                  className="w-full bg-[#C27D38] hover:bg-[#8C4F2B] text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+                  className="w-full bg-[#C27D38] hover:bg-[#8C4F2B] text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center tracking-wide"
                 >
-                  <span>Send Inquiry</span>
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Send Inquiry
                 </button>
               </form>
             )}

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Cinzel, Plus_Jakarta_Sans } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 
-const cinzel = Cinzel({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
+  weight: ['400', '600', '700'],
   variable: '--font-heading',
 });
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${plusJakartaSans.variable}`}>
+    <html lang="en" className={`${cormorantGaramond.variable} ${plusJakartaSans.variable}`}>
       <body className="min-h-screen flex flex-col font-body bg-warm-white text-acacia antialiased">
         {children}
       </body>

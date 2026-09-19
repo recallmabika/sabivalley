@@ -61,3 +61,47 @@
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
+/* Custom Flatpickr Safari Theme */
+.flatpickr-calendar {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-family: inherit !important;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected.inRange, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.selected:hover, 
+.flatpickr-day.selected.prevMonthDay, 
+.flatpickr-day.selected.nextMonthDay {
+  background: #C27D38 !important;
+  border-color: #C27D38 !important;
+}
+
+.flatpickr-months .flatpickr-month {
+  background: #1B3B2B !important;
+  color: #fff !important;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year {
+  font-weight: 600 !important;
+}
+
+.flatpickr-months .flatpickr-prev-month, 
+.flatpickr-months .flatpickr-next-month {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+span.flatpickr-weekday {
+  background: #1B3B2B !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
