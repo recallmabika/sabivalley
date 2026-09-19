@@ -131,18 +131,19 @@ export default function BookingInquiry() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-[#F4EFEA] overflow-hidden">
-      {/* Zimbabwe Map as Background for the whole section */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden select-none">
-        <div className="relative w-full h-[90%] max-w-5xl opacity-25">
-          <Image
-            src="/images/zimbabwe-map.png"
-            alt="Zimbabwe Map Background"
-            fill
-            className="object-contain object-center"
-            priority
-          />
-        </div>
+    <section id="contact" className="relative py-24 overflow-hidden">
+      {/* Wildlife & Ranger Background covering the whole window */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        <Image
+          src="/images/safari/ranger-elephants-contact.jpg"
+          alt="Chipinge Safari Area ranger overlooking elephant herd"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={85}
+        />
+        {/* Soft atmospheric overlay for high readability while displaying the full photo */}
+        <div className="absolute inset-0 bg-[#F4EFEA]/80 backdrop-blur-[1px]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
@@ -154,18 +155,18 @@ export default function BookingInquiry() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-heading text-[#1B3B2B] mb-6">Plan Your Visit</h2>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-800 mb-8 leading-relaxed">
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
             {/* Transparent Contact Details Card */}
-            <div className="p-5 sm:p-6 rounded-xl border border-gray-300 mb-6 bg-transparent">
+            <div className="p-5 sm:p-6 rounded-xl border border-gray-300/80 mb-6 bg-white/40 backdrop-blur-sm shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Location</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
+                    <p className="text-xs sm:text-sm text-gray-700">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
                   </div>
                 </div>
                 
@@ -173,7 +174,7 @@ export default function BookingInquiry() {
                   <Phone className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Phone</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">Contact ZIMPARKS SELR Office</p>
+                    <p className="text-xs sm:text-sm text-gray-700">Contact ZIMPARKS SELR Office</p>
                   </div>
                 </div>
 
@@ -181,7 +182,7 @@ export default function BookingInquiry() {
                   <Mail className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Email</h3>
-                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-600 hover:text-[#C27D38] transition-colors break-all">
+                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-700 hover:text-[#C27D38] transition-colors break-all">
                       info@chipingesafari.co.zw
                     </a>
                   </div>
@@ -191,16 +192,16 @@ export default function BookingInquiry() {
                   <Clock className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
                   <div>
                     <h3 className="text-sm font-semibold text-[#1B3B2B]">Operating Hours</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">Open Daily: 06:00 – 18:00</p>
+                    <p className="text-xs sm:text-sm text-gray-700">Open Daily: 06:00 – 18:00</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Transparent Important Visitor Notes */}
-            <div className="p-6 rounded-xl border border-[#1B3B2B]/30 text-[#1B3B2B] bg-transparent">
+            <div className="p-6 rounded-xl border border-[#1B3B2B]/30 text-[#1B3B2B] bg-white/40 backdrop-blur-sm shadow-sm">
               <h3 className="font-heading text-xl mb-3 text-[#C27D38] font-bold">Important Visitor Notes</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-800">
+              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-800 font-medium">
                 <li>All walking safaris require a professional armed ranger accompaniment.</li>
                 <li>Strictly no littering. Take only photographs, leave only footprints.</li>
                 <li>Respect wildlife distances and adhere to all guide instructions.</li>
@@ -215,7 +216,7 @@ export default function BookingInquiry() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 md:p-10 rounded-2xl border border-gray-300 bg-transparent"
+            className="p-8 md:p-10 rounded-2xl border border-gray-300/80 bg-white/40 backdrop-blur-sm shadow-sm"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
             

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B3B2B" />
+      <stop offset="100%" stop-color="#12281D" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="42" y1="12" x2="42" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5984A" />
+      <stop offset="100%" stop-color="#C27D38" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect width="64" height="64" rx="14" fill="url(#skyGrad)" />
+
+  <!-- Safari Morning Sun -->
+  <circle cx="43" cy="22" r="10" fill="url(#sunGrad)" />
+
+  <!-- Landscape Horizon / Lowveld terrain -->
+  <path d="M0 50 Q 24 44 44 48 T 64 50 L 64 64 L 0 64 Z" fill="#0C1A13" />
+
+  <!-- Stylized African Acacia Tree (Iconic Safari Umbrella Tree) -->
+  <!-- Trunk and Branches -->
+  <path d="M30 50 C29 44 26 39 24 35 C22 31 18 29 17 28 C18 28 22 28.5 25 31 C27 28 29 26 31 24 C33 26 36 28 40 29 C38 30 35 32 34 36 C33 41 33 46 33 50 Z" fill="#F4EFEA" />
+
+  <!-- Canopy tiers with vibrant conservation greens -->
+  <!-- Top Umbrella Tier -->
+  <ellipse cx="31" cy="21" rx="17" ry="4" fill="#52B788" />
+  <ellipse cx="29" cy="19.5" rx="13" ry="3" fill="#74C69D" />
+
+  <!-- Secondary Tiers -->
+  <ellipse cx="17" cy="27" rx="9" ry="2.6" fill="#52B788" />
+  <ellipse cx="40" cy="27" rx="10" ry="2.6" fill="#52B788" />
+
+  <!-- Foreground wildlife bird silhouette taking flight -->
+  <path d="M47 13 Q 49 11 51 12 Q 53 11 55 13 Q 52 14 51 13.5 Q 49 14.5 47 13 Z" fill="#F4EFEA" opacity="0.9" />
+</svg>
