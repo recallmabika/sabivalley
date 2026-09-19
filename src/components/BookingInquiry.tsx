@@ -132,15 +132,15 @@ export default function BookingInquiry() {
 
   return (
     <section id="contact" className="relative py-24 bg-[#F4EFEA] overflow-hidden">
-      {/* Zimbabwe Map Background Watermark */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-end overflow-hidden opacity-[0.09] select-none">
-        <div className="relative w-[650px] h-[650px] lg:w-[850px] lg:h-[850px] translate-x-1/4 translate-y-6">
+      {/* Zimbabwe Map as Background for the whole section */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden select-none">
+        <div className="relative w-full h-[90%] max-w-5xl opacity-25">
           <Image
             src="/images/zimbabwe-map.png"
-            alt="Zimbabwe Map"
+            alt="Zimbabwe Map Background"
             fill
-            className="object-contain"
-            priority={false}
+            className="object-contain object-center"
+            priority
           />
         </div>
       </div>
@@ -158,7 +158,8 @@ export default function BookingInquiry() {
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
-            <div className="bg-[#FDFCFA] p-5 sm:p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
+            {/* Transparent Contact Details Card */}
+            <div className="p-5 sm:p-6 rounded-xl border border-gray-300 mb-6 bg-transparent">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
@@ -196,9 +197,10 @@ export default function BookingInquiry() {
               </div>
             </div>
 
-            <div className="bg-[#1B3B2B] text-[#F4EFEA] p-6 rounded-xl shadow-md">
-              <h3 className="font-heading text-xl mb-3 text-[#C27D38]">Important Visitor Notes</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
+            {/* Transparent Important Visitor Notes */}
+            <div className="p-6 rounded-xl border border-[#1B3B2B]/30 text-[#1B3B2B] bg-transparent">
+              <h3 className="font-heading text-xl mb-3 text-[#C27D38] font-bold">Important Visitor Notes</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-800">
                 <li>All walking safaris require a professional armed ranger accompaniment.</li>
                 <li>Strictly no littering. Take only photographs, leave only footprints.</li>
                 <li>Respect wildlife distances and adhere to all guide instructions.</li>
@@ -207,12 +209,13 @@ export default function BookingInquiry() {
             </div>
           </motion.div>
 
+          {/* Transparent Inquiry Form Card */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-[#FDFCFA] p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100"
+            className="p-8 md:p-10 rounded-2xl border border-gray-300 bg-transparent"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
             
@@ -333,7 +336,7 @@ export default function BookingInquiry() {
                       <button
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className={`w-full px-4 pt-5 pb-2 rounded-lg border text-left bg-white flex items-center justify-between transition-colors outline-none ${
+                        className={`w-full px-4 pt-5 pb-2 rounded-lg border text-left bg-transparent flex items-center justify-between transition-colors outline-none ${
                           errors.activity 
                             ? "border-red-400" 
                             : isDropdownOpen 
@@ -406,7 +409,7 @@ export default function BookingInquiry() {
                         type="text" 
                         id="flatpickr-date" 
                         placeholder=" "
-                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-white cursor-pointer text-gray-900 text-sm ${
+                        className={`peer w-full px-4 pt-5 pb-2 rounded-lg border outline-none transition-colors bg-transparent cursor-pointer text-gray-900 text-sm ${
                           errors.date ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#C27D38]"
                         }`}
                       />

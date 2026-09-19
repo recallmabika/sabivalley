@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { faqs } from "@/data/content";
 
 export default function FAQSection() {
@@ -45,22 +46,18 @@ export default function FAQSection() {
                   type="button"
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isOpen}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus-visible:outline-none"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus-visible:outline-none cursor-pointer"
                 >
                   <span className="font-heading font-semibold text-[#1B3B2B] text-base sm:text-lg pr-2">
                     {faq.question}
                   </span>
                   
-                  {/* Clean Animated Toggle Indicator */}
-                  <span
-                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-sm font-semibold transition-transform duration-200 ${
-                      isOpen
-                        ? "bg-[#1B3B2B] text-white rotate-45"
-                        : "bg-gray-100 text-gray-600"
+                  {/* Clean Animated Arrow Indicator without bg-color */}
+                  <ChevronDown
+                    className={`w-5 h-5 text-[#1B3B2B] shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180" : ""
                     }`}
-                  >
-                    +
-                  </span>
+                  />
                 </button>
 
                 <AnimatePresence initial={false}>
@@ -73,9 +70,6 @@ export default function FAQSection() {
                     >
                       <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-gray-700 leading-relaxed border-t border-gray-100/80">
                         <p>{faq.answer}</p>
-                        <span className="inline-block mt-3 text-[11px] uppercase tracking-wider font-semibold text-[#C27D38] bg-[#C27D38]/10 px-2.5 py-0.5 rounded-full">
-                          {faq.category}
-                        </span>
                       </div>
                     </motion.div>
                   )}
