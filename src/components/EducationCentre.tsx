@@ -23,7 +23,6 @@ export default function EducationCentre() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -74,7 +73,7 @@ export default function EducationCentre() {
                 <span className="font-medium text-[#F4EFEA]">Date:</span> {siteInfo.groundbreaking.date}
               </p>
               <p className="text-[#FDFCFA]/80 text-sm">
-                <span className="font-medium text-[#F4EFEA]">Key Officials:</span> {siteInfo.groundbreaking.officials.join(", ")}
+                <span className="font-medium text-[#F4EFEA]">Officiated By:</span> {siteInfo.groundbreaking.minister} ({siteInfo.groundbreaking.ministerTitle}) & {siteInfo.groundbreaking.directorGeneral} ({siteInfo.groundbreaking.directorGeneralTitle})
               </p>
             </div>
 

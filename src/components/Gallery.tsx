@@ -31,16 +31,6 @@ export default function Gallery() {
 
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          <button
-            onClick={() => setActiveCategory("All")}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeCategory === "All"
-                ? "bg-[#1B3B2B] text-white"
-                : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
-            }`}
-          >
-            All
-          </button>
           {galleryCategories.map((category) => (
             <button
               key={category}
@@ -62,7 +52,7 @@ export default function Gallery() {
             {filteredImages.map((image) => (
               <motion.div
                 layout
-                key={image.id}
+                key={image.src}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
