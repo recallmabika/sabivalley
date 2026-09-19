@@ -1,10 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { activities as activityData } from "@/data/content";
 
 export default function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterError, setNewsletterError] = useState("");
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!newsletterEmail.trim()) {
+      setNewsletterError("Email address is required.");
+      return;
+    }
+    if (!emailRegex.test(newsletterEmail.trim())) {
+      setNewsletterError("Please enter a valid email address.");
+      return;
+    }
+    setNewsletterError("");
+    setNewsletterSuccess(true);
+    setNewsletterEmail("");
+    setTimeout(() => {
+      setNewsletterSuccess(false);
+    }, 5000);
+  };
   return (
     <footer className="bg-[#0F2A1D] text-[#F4EFEA] border-t border-[#1B3B2B]">
       <div className="container mx-auto px-4 lg:px-8 py-16 max-w-7xl">
@@ -119,7 +142,7 @@ export default function Footer() {
 
         </div>
 
-        {/* Newsletter Subscribe */}
+        {/* Newsletter Subscribe with Floating Label, Clean Border Focus & Validation */}
         <div className="mt-12 pt-10 border-t border-white/10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -130,23 +153,60 @@ export default function Footer() {
                 Subscribe to receive updates on conservation efforts, upcoming events, and seasonal highlights.
               </p>
             </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex w-full md:w-auto gap-3"
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="flex-1 md:w-72 px-4 py-3 bg-white/5 border border-white/15 rounded text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#C27D38] focus:ring-1 focus:ring-[#C27D38] transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-[#C27D38] hover:bg-[#8C4F2B] text-white text-sm font-semibold rounded transition-colors shadow-md shrink-0"
+
+            {newsletterSuccess ? (
+              <div className="bg-[#C27D38]/15 border border-[#C27D38]/40 px-5 py-3 rounded-lg text-sm text-[#FDFCFA] font-medium flex items-center gap-2">
+                <span>✓</span> Thank you for subscribing to our newsletter!
+              </div>
+            ) : (
+              <form
+                onSubmit={handleNewsletterSubmit}
+                noValidate
+                className="flex flex-col sm:flex-row w-full md:w-auto gap-3"
               >
-                Subscribe
-              </button>
-            </form>
+                <div className="flex flex-col">
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="newsletter-email"
+                      value={newsletterEmail}
+                      onChange={(e) => {
+                        setNewsletterEmail(e.target.value);
+                        if (newsletterError) setNewsletterError("");
+                      }}
+                      placeholder=" "
+                      className={`peer w-full sm:w-72 px-4 pt-5 pb-2 bg-white/5 border rounded-lg text-sm text-white placeholder-transparent outline-none transition-colors ${
+                        newsletterError 
+                          ? "border-red-400 focus:border-red-500" 
+                          : "border-white/15 focus:border-[#C27D38]"
+                      }`}
+                    />
+                    <label
+                      htmlFor="newsletter-email"
+                      className={`absolute left-4 top-3.5 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs ${
+                        newsletterError
+                          ? "text-red-400 peer-focus:text-red-400"
+                          : "text-gray-400 peer-focus:text-[#C27D38]"
+                      }`}
+                    >
+                      Email Address
+                    </label>
+                  </div>
+                  {newsletterError && (
+                    <span className="text-xs text-red-400 mt-1 pl-1">
+                      {newsletterError}
+                    </span>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="h-[46px] px-6 bg-[#C27D38] hover:bg-[#8C4F2B] text-white text-sm font-semibold rounded-lg transition-colors shadow-md shrink-0 self-start sm:self-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
           </div>
         </div>
 

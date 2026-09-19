@@ -34,14 +34,14 @@ export default function EducationCentre() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
-          {/* Left Column: Feature Image with 'Education & Conservation' above it */}
+          {/* Left Column: Education & Conservation + Feature Image */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38]">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] pt-2">
               Education & Conservation
             </p>
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[560px] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[540px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/safari/education-groundbreaking.jpg"
                 alt="Education Centre Groundbreaking"
