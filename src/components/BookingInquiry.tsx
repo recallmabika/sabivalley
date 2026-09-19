@@ -81,36 +81,40 @@ export default function BookingInquiry() {
               Experience the raw beauty of the Chipinge Safari Area. Whether you're seeking a thrilling walking safari or an educational conservation tour, our team is ready to help you plan an unforgettable adventure.
             </p>
 
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start bg-[#FDFCFA] p-6 rounded-xl shadow-sm border border-gray-100">
-                <MapPin className="w-6 h-6 text-[#C27D38] mt-1 mr-4 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-[#1B3B2B] mb-1">Location</h3>
-                  <p className="text-gray-600">Chipinge Safari Area, South East Lowveld Region, Zimbabwe</p>
+            <div className="bg-[#FDFCFA] p-5 sm:p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-start">
+                  <MapPin className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Location</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">Chipinge Safari Area, South East Lowveld, Zimbabwe</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-start bg-[#FDFCFA] p-6 rounded-xl shadow-sm border border-gray-100">
-                <Phone className="w-6 h-6 text-[#C27D38] mt-1 mr-4 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-[#1B3B2B] mb-1">Phone</h3>
-                  <p className="text-gray-600">Contact ZIMPARKS SELR Office</p>
+                
+                <div className="flex items-start">
+                  <Phone className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Phone</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">Contact ZIMPARKS SELR Office</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start bg-[#FDFCFA] p-6 rounded-xl shadow-sm border border-gray-100">
-                <Mail className="w-6 h-6 text-[#C27D38] mt-1 mr-4 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-[#1B3B2B] mb-1">Email</h3>
-                  <p className="text-gray-600">info@chipingesafari.co.zw</p>
+                <div className="flex items-start">
+                  <Mail className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Email</h3>
+                    <a href="mailto:info@chipingesafari.co.zw" className="text-xs sm:text-sm text-gray-600 hover:text-[#C27D38] transition-colors break-all">
+                      info@chipingesafari.co.zw
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start bg-[#FDFCFA] p-6 rounded-xl shadow-sm border border-gray-100">
-                <Clock className="w-6 h-6 text-[#C27D38] mt-1 mr-4 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-[#1B3B2B] mb-1">Operating Hours</h3>
-                  <p className="text-gray-600">Open Daily: 06:00 - 18:00</p>
+                <div className="flex items-start">
+                  <Clock className="w-5 h-5 text-[#C27D38] mt-0.5 mr-3 shrink-0" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#1B3B2B]">Operating Hours</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">Open Daily: 06:00 – 18:00</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -148,71 +152,105 @@ export default function BookingInquiry() {
                   </div>
                 )}
 
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                {/* Full Name - Floating Label */}
+                <div className="relative">
                   <input 
                     type="text" 
                     id="name" 
                     required 
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                    placeholder="Jane Doe"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors bg-transparent text-gray-900"
                   />
+                  <label 
+                    htmlFor="name" 
+                    className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                  >
+                    Full Name
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                {/* Email Address - Floating Label */}
+                <div className="relative">
                   <input 
                     type="email" 
                     id="email" 
                     required 
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                    placeholder="jane@example.com"
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors bg-transparent text-gray-900"
                   />
+                  <label 
+                    htmlFor="email" 
+                    className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                  >
+                    Email Address
+                  </label>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                  {/* Phone Number - Floating Label */}
+                  <div className="relative">
                     <input 
                       type="tel" 
                       id="phone" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                      placeholder="+263 77 123 4567"
+                      placeholder=" "
+                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors bg-transparent text-gray-900"
                     />
+                    <label 
+                      htmlFor="phone" 
+                      className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                    >
+                      Phone Number
+                    </label>
                   </div>
-                  <div>
-                    <label htmlFor="visitors" className="block text-sm font-medium text-gray-700 mb-1">Number of Visitors</label>
+
+                  {/* Number of Visitors - Floating Label */}
+                  <div className="relative">
                     <input 
                       type="number" 
                       id="visitors" 
                       min="1" 
                       required 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors"
-                      placeholder="2"
+                      placeholder=" "
+                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors bg-transparent text-gray-900"
                     />
+                    <label 
+                      htmlFor="visitors" 
+                      className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                    >
+                      Number of Visitors
+                    </label>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {/* Custom Dropdown Field */}
+                  {/* Custom Dropdown Field - Floating Style */}
                   <div className="relative" ref={dropdownRef}>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Primary Activity Interest</label>
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full px-4 py-3 rounded-lg border text-left bg-white flex items-center justify-between transition-all outline-none ${
+                      className={`w-full px-4 pt-5 pb-2 rounded-lg border text-left bg-white flex items-center justify-between transition-colors outline-none ${
                         isDropdownOpen 
-                          ? "border-[#C27D38] ring-2 ring-[#C27D38]/20" 
+                          ? "border-[#C27D38]" 
                           : "border-gray-300 hover:border-gray-400"
                       }`}
                     >
-                      <span className={selectedActivity ? "text-gray-900 font-medium" : "text-gray-400"}>
-                        {selectedActivity || "Select an activity..."}
+                      <span className={selectedActivity ? "text-gray-900 text-sm" : "text-transparent text-sm"}>
+                        {selectedActivity || "Placeholder"}
                       </span>
                       <span className={`transition-transform duration-200 text-xs text-gray-500 ${isDropdownOpen ? "rotate-180" : ""}`}>
                         ▼
                       </span>
                     </button>
+
+                    <span 
+                      className={`absolute left-4 pointer-events-none transition-all duration-200 origin-left text-sm ${
+                        selectedActivity || isDropdownOpen
+                          ? "top-1.5 text-xs text-[#C27D38] font-medium"
+                          : "top-3.5 text-gray-500"
+                      }`}
+                    >
+                      Primary Activity Interest
+                    </span>
 
                     <AnimatePresence>
                       {isDropdownOpen && (
@@ -249,34 +287,43 @@ export default function BookingInquiry() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Flatpickr Date Field */}
-                  <div>
-                    <label htmlFor="flatpickr-date" className="block text-sm font-medium text-gray-700 mb-1">
-                      Preferred Date
-                    </label>
+                  {/* Flatpickr Date Field - Floating Label */}
+                  <div className="relative">
                     <input 
                       ref={dateInputRef}
                       type="text" 
                       id="flatpickr-date" 
-                      placeholder="Select date..."
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors bg-white cursor-pointer"
+                      placeholder=" "
+                      className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors bg-white cursor-pointer text-gray-900 text-sm"
                     />
+                    <label 
+                      htmlFor="flatpickr-date" 
+                      className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                    >
+                      Preferred Date
+                    </label>
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message / Special Requests</label>
+                {/* Message / Special Requests - Floating Label */}
+                <div className="relative">
                   <textarea 
                     id="message" 
                     rows={4} 
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C27D38] focus:border-transparent outline-none transition-colors resize-none"
-                    placeholder="Tell us about your expectations, dietary requirements, or any specific interests..."
+                    placeholder=" "
+                    className="peer w-full px-4 pt-5 pb-2 rounded-lg border border-gray-300 focus:border-[#C27D38] outline-none transition-colors resize-none bg-transparent text-gray-900"
                   ></textarea>
+                  <label 
+                    htmlFor="message" 
+                    className="absolute left-4 top-3.5 text-gray-500 text-sm pointer-events-none transition-all duration-200 origin-left peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-[#C27D38] peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+                  >
+                    Message / Special Requests
+                  </label>
                 </div>
 
                 <button 
                   type="submit" 
-                  className="w-full bg-[#C27D38] hover:bg-[#8C4F2B] text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center tracking-wide"
+                  className="w-full bg-[#C27D38] hover:bg-[#8C4F2B] text-white font-semibold py-4 px-6 rounded-lg transition-colors text-center tracking-wide shadow-md"
                 >
                   Send Inquiry
                 </button>

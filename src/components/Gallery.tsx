@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { galleryImages, galleryCategories } from "@/data/content";
@@ -8,77 +8,220 @@ import { galleryImages, galleryCategories } from "@/data/content";
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [visibleCount, setVisibleCount] = useState(10);
+  const [isAutoShuffle, setIsAutoShuffle] = useState(true);
 
-  const filteredImages = activeCategory === "All"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === activeCategory);
+  const rawFiltered = useMemo(() => {
+    return activeCategory === "All"
+      ? galleryImages
+      : galleryImages.filter(img => img.category === activeCategory);
+  }, [activeCategory]);
+
+  // Maintain custom display order for animated random switching
+  const [displayedImages, setDisplayedImages] = useState<typeof galleryImages>([]);
+
+  useEffect(() => {
+    setDisplayedImages(rawFiltered.slice(0, visibleCount));
+  }, [rawFiltered, visibleCount]);
+
+  // Periodically randomly swap positions between a large slot and a small slot for dynamic switching
+  useEffect(() => {
+    if (!isAutoShuffle || displayedImages.length < 3) return;
+
+    const timer = setInterval(() => {
+      setDisplayedImages(prev => {
+        if (prev.length < 2) return prev;
+        const copy = [...prev];
+        // Pick one index from the featured/large slots (e.g. index 0 or index 6)
+        const featuredSlots = [0, 5].filter(idx => idx < copy.length);
+        const sourceIdx = featuredSlots[Math.floor(Math.random() * featuredSlots.length)];
+        
+        // Pick any other random index to swap with
+        let targetIdx = Math.floor(Math.random() * copy.length);
+        while (targetIdx === sourceIdx && copy.length > 1) {
+          targetIdx = Math.floor(Math.random() * copy.length);
+        }
+
+        const temp = copy[sourceIdx];
+        copy[sourceIdx] = copy[targetIdx];
+        copy[targetIdx] = temp;
+        return copy;
+      });
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isAutoShuffle, displayedImages.length]);
+
+  const hasMore = visibleCount < rawFiltered.length;
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setVisibleCount(10);
+  };
+
+  const loadMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
+
+  const manualShuffle = () => {
+    setDisplayedImages(prev => {
+      const copy = [...prev];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    });
+  };
+
+  // Helper to determine size variant based on grid position:
+  // Slots 0 and 5 are large spotlight tiles (span 2 cols and 2 rows on md+)
+  // The rest are compact, tidy cards
+  const isFeatured = (index: number) => index === 0 || index === 5;
 
   return (
-    <section id="gallery" className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
+    <section id="gallery" className="bg-[#FDFCFA] py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center mb-12">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             Visual Journey
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading">
             Safari Gallery
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
-            Experience authentic moments captured at Chipinge Safari Area, from diverse wildlife to our education and conservation efforts.
+          <p className="mt-4 text-base sm:text-lg leading-7 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+            Experience authentic moments captured at Chipinge Safari Area. Cards dynamically rearrange to highlight different perspectives.
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {galleryCategories.map((category) => (
+        {/* Category Filters & Shuffle Controls */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-4 border-b border-gray-200">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+            {galleryCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                  activeCategory === category
+                    ? "bg-[#1B3B2B] text-white shadow-sm"
+                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0 text-xs">
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === category
-                  ? "bg-[#1B3B2B] text-white"
-                  : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+              onClick={manualShuffle}
+              className="px-3 py-1.5 bg-white border border-gray-300 hover:border-[#C27D38] text-gray-700 hover:text-[#C27D38] rounded-md transition-colors shadow-sm font-medium"
+              title="Re-shuffle positions"
+            >
+              Shuffle Order
+            </button>
+            <button
+              onClick={() => setIsAutoShuffle(!isAutoShuffle)}
+              className={`px-3 py-1.5 rounded-md transition-colors font-medium border ${
+                isAutoShuffle
+                  ? "bg-[#1B3B2B]/10 text-[#1B3B2B] border-[#1B3B2B]/30"
+                  : "bg-gray-100 text-gray-500 border-gray-200"
               }`}
             >
-              {category}
+              {isAutoShuffle ? "Auto-Shuffle: Active" : "Auto-Shuffle: Paused"}
             </button>
-          ))}
+          </div>
         </div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          <AnimatePresence mode="popLayout">
-            {filteredImages.map((image) => (
-              <motion.div
-                layout
-                key={image.src}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-xl"
-                onClick={() => setSelectedImage(image)}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#1B3B2B]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                  <p className="text-white font-medium px-2 py-1 bg-black/30 rounded">
-                    {image.alt}
-                  </p>
-                  <span className="text-[#C27D38] text-xs uppercase tracking-wider font-semibold mt-2">View</span>
-                </div>
-              </motion.div>
-            ))}
+        {/* Dynamic Bento Grid (Few Big, Many Small with Smooth Layout Transitions) */}
+        <motion.div 
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]"
+        >
+          <AnimatePresence>
+            {displayedImages.map((image, index) => {
+              const large = isFeatured(index);
+              return (
+                <motion.div
+                  layout
+                  key={image.src}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.85 }}
+                  transition={{
+                    layout: { type: "spring", stiffness: 220, damping: 28 },
+                    opacity: { duration: 0.3 }
+                  }}
+                  className={`relative group cursor-pointer overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow bg-gray-100 ${
+                    large
+                      ? "sm:col-span-2 sm:row-span-2 min-h-[320px]"
+                      : "col-span-1 row-span-1"
+                  }`}
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes={large ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Badge for spotlight items */}
+                  {large && (
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="px-2.5 py-1 bg-[#1B3B2B]/80 backdrop-blur-sm text-white text-[11px] uppercase tracking-wider font-semibold rounded-md border border-white/15 shadow">
+                        Featured
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-left">
+                    <p className={`text-white font-medium line-clamp-2 ${large ? "text-base sm:text-lg" : "text-xs sm:text-sm"}`}>
+                      {image.alt}
+                    </p>
+                    <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/20">
+                      <span className="text-white/70 text-[11px] uppercase tracking-wider">
+                        {image.category}
+                      </span>
+                      <span className="text-[#C27D38] text-xs uppercase tracking-wider font-semibold">
+                        View
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Scalability Controls: Load More / Counter */}
+        <div className="mt-12 text-center flex flex-col items-center gap-4">
+          <p className="text-sm text-gray-500">
+            Showing <span className="font-semibold text-gray-800">{displayedImages.length}</span> of{" "}
+            <span className="font-semibold text-gray-800">{rawFiltered.length}</span> photos
+          </p>
+
+          <div className="flex items-center gap-4">
+            {hasMore && (
+              <button
+                onClick={loadMore}
+                className="px-8 py-3.5 bg-[#1B3B2B] hover:bg-[#12281D] text-white font-medium text-sm rounded-lg transition-all shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Load More Photos
+              </button>
+            )}
+
+            {visibleCount > 9 && (
+              <button
+                onClick={() => setVisibleCount(9)}
+                className="px-6 py-3.5 bg-transparent border border-gray-300 hover:border-gray-400 text-gray-700 font-medium text-sm rounded-lg transition-colors"
+              >
+                Show Less
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { activities as activityData } from "@/data/content";
@@ -55,7 +57,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-white tracking-wide">Quick Links</h4>
+            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
                 <Link href="#experiences" className="hover:text-[#C27D38] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C27D38] rounded">
@@ -87,7 +89,7 @@ export default function Footer() {
 
           {/* Experiences */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-white tracking-wide">Experiences</h4>
+            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Experiences</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               {activityData.map((activity) => (
                 <li key={activity.id}>
@@ -101,7 +103,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6 text-white tracking-wide">Contact Us</h4>
+            <h4 className="text-lg font-heading font-semibold mb-6 text-[#C27D38] tracking-wide">Contact Us</h4>
             <address className="not-italic space-y-3 text-sm text-gray-300">
               <p>Chipinge Safari Area<br/>South East Lowveld Region<br/>Zimbabwe</p>
               <p className="pt-2">
@@ -115,6 +117,37 @@ export default function Footer() {
             </address>
           </div>
 
+        </div>
+
+        {/* Newsletter Subscribe */}
+        <div className="mt-12 pt-10 border-t border-white/10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h4 className="text-lg font-heading font-semibold text-white tracking-wide mb-1">
+                Stay Connected
+              </h4>
+              <p className="text-sm text-gray-400">
+                Subscribe to receive updates on conservation efforts, upcoming events, and seasonal highlights.
+              </p>
+            </div>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex w-full md:w-auto gap-3"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                className="flex-1 md:w-72 px-4 py-3 bg-white/5 border border-white/15 rounded text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#C27D38] focus:ring-1 focus:ring-[#C27D38] transition-colors"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-[#C27D38] hover:bg-[#8C4F2B] text-white text-sm font-semibold rounded transition-colors shadow-md shrink-0"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Bottom Bar */}

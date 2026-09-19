@@ -51,12 +51,15 @@ export default function EducationCentre() {
           {/* Right Column: Content */}
           <motion.div variants={containerVariants} className="space-y-8">
             <div className="space-y-4">
-              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38]">
-                Education & Conservation
-              </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
-                Environmental Education Centre
-              </h2>
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] shrink-0">
+                  Education & Conservation
+                </span>
+                <span className="hidden sm:inline text-[#C27D38]/50">•</span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading leading-tight text-[#FDFCFA]">
+                  Environmental Education Centre
+                </h2>
+              </div>
               <p className="text-[#C27D38] italic text-xl border-l-4 border-[#C27D38] pl-4 py-1">
                 &ldquo;{siteInfo.motto}&rdquo;
               </p>
