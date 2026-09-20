@@ -10,7 +10,7 @@ export default function EducationCentre() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -21,7 +21,8 @@ export default function EducationCentre() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
+        ease: [0.25, 0.4, 0.25, 1],
       },
     },
   };
@@ -33,7 +34,7 @@ export default function EducationCentre() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch"
         >
           {/* Left Column: Education & Conservation + Feature Image + 2 Cards */}
@@ -113,7 +114,7 @@ export default function EducationCentre() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
         >
           {[

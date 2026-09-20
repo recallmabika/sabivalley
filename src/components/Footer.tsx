@@ -259,7 +259,7 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 className="text-[#52b788] hover:text-white font-semibold underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#52b788] rounded"
               >
-                ZITRAC
+                ZITRAC Technologies
               </a>
             </p>
           </div>
