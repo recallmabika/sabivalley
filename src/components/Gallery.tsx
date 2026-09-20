@@ -80,22 +80,22 @@ export default function Gallery() {
   const isFeatured = (index: number) => index === 0 || index === 5;
 
   return (
-    <section id="gallery" className="bg-[#FDFCFA] py-24 sm:py-32">
+    <section id="gallery" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-12">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             Visual Journey
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
             Safari Gallery
           </h2>
-          <p className="mt-4 text-base sm:text-lg leading-7 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="mt-4 text-base sm:text-lg leading-7 text-white/70" style={{ fontFamily: 'var(--font-body)' }}>
             Experience authentic moments captured at Chipinge Safari Area. Cards dynamically rearrange to highlight different perspectives.
           </p>
         </div>
 
         {/* Category Filters & Shuffle Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-4 border-b border-gray-200">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-4 border-b border-white/15">
           <div className="flex flex-wrap justify-center sm:justify-start gap-2">
             {galleryCategories.map((category) => (
               <button
@@ -103,8 +103,8 @@ export default function Gallery() {
                 onClick={() => handleCategoryChange(category)}
                 className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   activeCategory === category
-                    ? "bg-[#1B3B2B] text-white shadow-sm"
-                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                    ? "bg-white text-[#1B3B2B] shadow-sm"
+                    : "bg-white/10 text-white/80 border border-white/20 hover:bg-white/20"
                 }`}
               >
                 {category}
@@ -115,7 +115,7 @@ export default function Gallery() {
           <div className="flex items-center gap-3 shrink-0 text-xs">
             <button
               onClick={manualShuffle}
-              className="px-3 py-1.5 bg-white border border-gray-300 hover:border-[#C27D38] text-gray-700 hover:text-[#C27D38] rounded-md transition-colors shadow-sm font-medium"
+              className="px-3 py-1.5 bg-white/10 border border-white/20 hover:border-white/40 text-white/80 hover:text-white rounded-md transition-colors shadow-sm font-medium"
               title="Re-shuffle positions"
             >
               Shuffle Order
@@ -124,8 +124,8 @@ export default function Gallery() {
               onClick={() => setIsAutoShuffle(!isAutoShuffle)}
               className={`px-3 py-1.5 rounded-md transition-colors font-medium border ${
                 isAutoShuffle
-                  ? "bg-[#1B3B2B]/10 text-[#1B3B2B] border-[#1B3B2B]/30"
-                  : "bg-gray-100 text-gray-500 border-gray-200"
+                  ? "bg-white/15 text-white border-white/30"
+                  : "bg-white/5 text-white/50 border-white/10"
               }`}
             >
               {isAutoShuffle ? "Auto-Shuffle: Active" : "Auto-Shuffle: Paused"}
@@ -198,16 +198,16 @@ export default function Gallery() {
 
         {/* Scalability Controls: Load More / Counter */}
         <div className="mt-12 text-center flex flex-col items-center gap-4">
-          <p className="text-sm text-gray-500">
-            Showing <span className="font-semibold text-gray-800">{displayedImages.length}</span> of{" "}
-            <span className="font-semibold text-gray-800">{rawFiltered.length}</span> photos
+          <p className="text-sm text-white/60">
+            Showing <span className="font-semibold text-white">{ displayedImages.length}</span> of{" "}
+            <span className="font-semibold text-white">{rawFiltered.length}</span> photos
           </p>
 
           <div className="flex items-center gap-4">
             {hasMore && (
               <button
                 onClick={loadMore}
-                className="px-8 py-3.5 bg-[#1B3B2B] hover:bg-[#12281D] text-white font-medium text-sm rounded-lg transition-all shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                className="px-8 py-3.5 bg-white hover:bg-white/90 text-[#1B3B2B] font-medium text-sm rounded-lg transition-all shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
                 Load More Photos
               </button>
@@ -216,7 +216,7 @@ export default function Gallery() {
             {visibleCount > 9 && (
               <button
                 onClick={() => setVisibleCount(9)}
-                className="px-6 py-3.5 bg-transparent border border-gray-300 hover:border-gray-400 text-gray-700 font-medium text-sm rounded-lg transition-colors"
+                className="px-6 py-3.5 bg-transparent border border-white/30 hover:border-white/50 text-white font-medium text-sm rounded-lg transition-colors"
               >
                 Show Less
               </button>

@@ -28,7 +28,7 @@ export default function HerbalGarden() {
   ];
 
   return (
-    <section id="garden" className="py-24 bg-[#FDFCFA]">
+    <section id="garden" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -91,10 +91,10 @@ export default function HerbalGarden() {
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
               Botanical Heritage
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-[#1B3B2B] mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
               Medicinal & Herbal Garden
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-lg text-white/80 leading-relaxed mb-8">
               Deep in the South East Lowveld, ancient trees and indigenous plants have nourished, healed, and sustained local communities for centuries. The Chipinge Safari Area Medicinal Garden serves as an open-air laboratory and living conservatory—preserving native medicinal flora, educating visiting school groups, and safeguarding traditional ecological knowledge for future generations.
             </p>
 
@@ -102,12 +102,12 @@ export default function HerbalGarden() {
               {highlights.map((item, index) => (
                 <div 
                   key={index} 
-                  className="p-5 rounded-xl border border-gray-200 hover:border-[#C27D38]/50 transition-colors flex flex-col justify-start bg-transparent"
+                  className="p-5 rounded-xl border border-white/20 hover:border-white/40 transition-colors flex flex-col justify-start bg-white/5"
                 >
-                  <h3 className="font-heading font-bold text-[#1B3B2B] text-base mb-2">
+                  <h3 className="font-heading font-bold text-white text-base mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-sm text-white/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
