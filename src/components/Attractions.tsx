@@ -4,30 +4,49 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { activities } from "@/data/content";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
 export default function Attractions() {
   return (
     <section id="experiences" className="bg-sand py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.p variants={itemVariants} className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             What Awaits You
-          </p>
-          <h2 className="text-4xl md:text-5xl font-heading text-[#1B3B2B] mb-6">
+          </motion.p>
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-heading text-[#1B3B2B] mb-6">
             Wilderness Experiences
-          </h2>
-          <p className="text-lg text-[#1B3B2B]/80">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="text-lg text-[#1B3B2B]/80">
             Immerse yourself in the untamed beauty of Chipinge Safari Area. From thrilling game drives to peaceful birdwatching, discover the perfect adventure for your safari journey.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {activities.map((activity, index) => (
             <motion.div
               key={activity.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
             >

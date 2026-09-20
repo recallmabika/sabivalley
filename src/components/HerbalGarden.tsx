@@ -3,6 +3,19 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
 export default function HerbalGarden() {
   const highlights = [
     {
@@ -34,10 +47,10 @@ export default function HerbalGarden() {
           
           {/* Left Column: Visual Showcase */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8 }}
             className="lg:col-span-6 space-y-6"
           >
             <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden shadow-xl border border-black/5">
@@ -82,26 +95,27 @@ export default function HerbalGarden() {
 
           {/* Right Column: Educational Narrative & Pillars */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-6"
           >
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
+            <motion.p variants={itemVariants} className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
               Botanical Heritage
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
+            </motion.p>
+            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
               Medicinal & Herbal Garden
-            </h2>
-            <p className="text-lg text-white/80 leading-relaxed mb-8">
+            </motion.h2>
+            <motion.p variants={itemVariants} className="text-lg text-white/80 leading-relaxed mb-8">
               Deep in the South East Lowveld, ancient trees and indigenous plants have nourished, healed, and sustained local communities for centuries. The Chipinge Safari Area Medicinal Garden serves as an open-air laboratory and living conservatory—preserving native medicinal flora, educating visiting school groups, and safeguarding traditional ecological knowledge for future generations.
-            </p>
+            </motion.p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {highlights.map((item, index) => (
-                <div 
-                  key={index} 
+                <motion.div 
+                  key={index}
+                  variants={itemVariants}
                   className="p-5 rounded-xl border border-white/20 hover:border-white/40 transition-colors flex flex-col justify-start bg-white/5"
                 >
                   <h3 className="font-heading font-bold text-white text-base mb-2">
@@ -110,7 +124,7 @@ export default function HerbalGarden() {
                   <p className="text-sm text-white/70 leading-relaxed">
                     {item.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

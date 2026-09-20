@@ -79,20 +79,39 @@ export default function Gallery() {
   // The rest are compact, tidy cards
   const isFeatured = (index: number) => index === 0 || index === 5;
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
     <section id="gallery" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
+        <motion.div
+          className="mx-auto max-w-2xl text-center mb-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.p variants={itemVariants} className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             Visual Journey
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
+          </motion.p>
+          <motion.h2 variants={itemVariants} className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
             Safari Gallery
-          </h2>
-          <p className="mt-4 text-base sm:text-lg leading-7 text-white/70" style={{ fontFamily: 'var(--font-body)' }}>
+          </motion.h2>
+          <motion.p variants={itemVariants} className="mt-4 text-base sm:text-lg leading-7 text-white/70" style={{ fontFamily: 'var(--font-body)' }}>
             Experience authentic moments captured at Chipinge Safari Area. Cards dynamically rearrange to highlight different perspectives.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Category Filters & Shuffle Controls */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-4 border-b border-white/15">

@@ -5,6 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { faqs } from "@/data/content";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -17,17 +30,23 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
+        <motion.div
+          className="text-center mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.p variants={itemVariants} className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C27D38] mb-3">
             Visitor Information
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-[#1B3B2B] mb-4">
+          </motion.p>
+          <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl font-bold font-heading text-[#1B3B2B] mb-4">
             Frequently Asked Questions
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p variants={itemVariants} className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Essential information regarding visits, activities, educational programs, and wildlife guidelines at Chipinge Safari Area.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Accordion FAQ List */}
         <div>
@@ -36,10 +55,10 @@ export default function FAQSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.8, delay: index * 0.08 }}
                 className="border-b border-gray-200 last:border-b-0"
               >
                 <button
@@ -80,7 +99,13 @@ export default function FAQSection() {
         </div>
 
         {/* Contact prompt */}
-        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 border-t border-gray-200">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 border-t border-gray-200"
+        >
           <div>
             <p className="font-heading font-semibold text-[#1B3B2B] text-lg mb-1">
               Have a question not listed here?
@@ -95,7 +120,7 @@ export default function FAQSection() {
           >
             Inquire Directly
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

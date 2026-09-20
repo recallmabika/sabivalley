@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { activities as activityData } from "@/data/content";
@@ -28,13 +29,32 @@ export default function Footer() {
       setNewsletterSuccess(false);
     }, 5000);
   };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
     <footer className="bg-[#0F2A1D] text-[#F4EFEA] border-t border-white/[0.035]">
       <div className="container mx-auto px-4 lg:px-8 py-16 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           
           {/* Brand & Conservation Partners Column */}
-          <div className="space-y-6">
+          <motion.div variants={itemVariants} className="space-y-6">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div className="relative w-12 h-12 shrink-0">
                 <Image
@@ -76,10 +96,10 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
@@ -113,10 +133,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Experiences */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Experiences</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               {activityData.map((activity) => (
@@ -127,10 +147,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-lg font-heading font-bold mb-6 text-[#52b788] tracking-wide">Contact Us</h4>
             <address className="not-italic space-y-3 text-sm text-gray-300">
               <p>Chipinge Safari Area<br/>South East Lowveld Region<br/>Zimbabwe</p>
@@ -143,12 +163,18 @@ export default function Footer() {
                 </a>
               </p>
             </address>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* Newsletter Subscribe with Floating Label, Clean Border Focus & Validation */}
-        <div className="mt-12 pt-10 border-t border-white/[0.035]">
+        <motion.div
+          className="mt-12 pt-10 border-t border-white/[0.035]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h4 className="text-lg font-heading font-semibold text-white tracking-wide mb-1">
@@ -213,10 +239,16 @@ export default function Footer() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom Bar - Two Clean, Spacious Tiers with Dim Lines */}
-        <div className="mt-16 pt-8 border-t border-white/[0.035] space-y-4 text-xs sm:text-sm text-gray-400">
+        <motion.div
+          className="mt-16 pt-8 border-t border-white/[0.035] space-y-4 text-xs sm:text-sm text-gray-400"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8 }}
+        >
           {/* Tier 1: Copyright & Legal Policies */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-center md:text-left text-gray-300">
@@ -263,7 +295,7 @@ export default function Footer() {
               </a>
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

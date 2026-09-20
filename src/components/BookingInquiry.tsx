@@ -152,7 +152,7 @@ export default function BookingInquiry() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-heading text-[#1B3B2B] mb-6">Plan Your Visit</h2>
             <p className="text-lg text-gray-800 mb-8 leading-relaxed font-medium">
@@ -212,10 +212,10 @@ export default function BookingInquiry() {
 
           {/* Inquiry Form Card - Border Removed */}
           <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="p-8 md:p-10 rounded-2xl bg-white/65 shadow-sm"
           >
             <h3 className="text-2xl font-heading text-[#1B3B2B] mb-6">Send an Inquiry</h3>
